@@ -1055,7 +1055,7 @@
     // 2. Uncomment AIRTABLE_ENDPOINT and add your details
     // 3. That's it! The rest of the code works the same
 
-    const GOOGLE_SHEETS_ENDPOINT = 'YOUR_GOOGLE_SHEETS_WEB_APP_URL_HERE';
+    const GOOGLE_SHEETS_ENDPOINT = import.meta.env.PUBLIC_GOOGLE_SHEETS_URL || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
 
     // For future Airtable migration:
     // const AIRTABLE_ENDPOINT = 'https://api.airtable.com/v0/YOUR_BASE_ID/YOUR_TABLE_NAME';
