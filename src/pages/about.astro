@@ -1,0 +1,217 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About | Felt Pressure Washing" description="Learn about Felt Pressure Washing — professional exterior cleaning services in Eugene, Springfield and surrounding areas.">
+  <section class="about-hero">
+    <div class="container">
+      <h1 class="section-title">About Felt Pressure Washing</h1>
+      <p class="section-subtitle">Professional exterior cleaning you can trust</p>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>
+            Felt Pressure Washing was founded with a simple mission: to help homeowners and businesses
+            in the Eugene-Springfield area keep their properties looking their best. With over 5 years
+            of experience and 100+ completed projects, we've built a reputation for quality work and
+            exceptional customer service.
+          </p>
+          <p>
+            We use professional-grade equipment and eco-friendly cleaning solutions to deliver results
+            that speak for themselves. Whether it's a residential driveway or a commercial storefront,
+            we treat every job with the same level of care and attention to detail.
+          </p>
+
+          <h2>Why Choose Us</h2>
+          <ul class="about-list">
+            <li>100% Satisfaction Guaranteed</li>
+            <li>Fully Insured & Licensed</li>
+            <li>Eco-Friendly Cleaning Solutions</li>
+            <li>Free Estimates — No Obligation</li>
+            <li>Serving Eugene, Springfield & Surrounding Areas</li>
+          </ul>
+        </div>
+
+        <div class="about-sidebar">
+          <div class="about-card">
+            <div class="about-stat">5+</div>
+            <p>Years of Experience</p>
+          </div>
+          <div class="about-card">
+            <div class="about-stat">100+</div>
+            <p>Projects Completed</p>
+          </div>
+          <div class="about-card">
+            <div class="about-stat">100%</div>
+            <p>Satisfaction Guaranteed</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <h2>Ready to Transform Your Property?</h2>
+        <p>Get a free estimate today — no obligation, no pressure.</p>
+        <a href="/#estimate" class="btn btn-primary">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-hero {
+    padding: 80px 0 40px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    text-align: center;
+  }
+
+  .about-content {
+    padding: 60px 0 80px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+  }
+
+  .about-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+
+  .about-text h2:first-child {
+    margin-top: 0;
+  }
+
+  .about-text p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .about-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+  }
+
+  .about-list li {
+    padding: 12px 0;
+    padding-left: 32px;
+    position: relative;
+    color: var(--dark-gray);
+    font-weight: 500;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .about-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-card {
+    background: var(--bg-light);
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid #E5E7EB;
+    transition: all 0.3s ease;
+  }
+
+  .about-card:hover {
+    border-color: var(--light-blue);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .about-stat {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+  }
+
+  .about-card p {
+    color: var(--light-gray);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  .about-cta {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+    padding: 60px 40px;
+    border-radius: 16px;
+  }
+
+  .about-cta h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .about-cta p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 968px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .about-sidebar {
+      flex-direction: row;
+    }
+
+    .about-card {
+      flex: 1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-hero {
+      padding: 60px 0 30px;
+    }
+
+    .about-sidebar {
+      flex-direction: column;
+    }
+
+    .about-cta {
+      padding: 40px 24px;
+    }
+
+    .about-cta h2 {
+      font-size: 24px;
+    }
+  }
+</style>

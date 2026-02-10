@@ -1,67 +1,8 @@
 ---
-// Felt Pressure Washing - Landing Page
+import Layout from '../layouts/Layout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felt Pressure Washing | Professional Residential & Commercial Cleaning</title>
-  <meta name="description" content="Professional pressure washing services for residential and commercial properties. Get your free quote today!">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Header/Navigation -->
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <div class="header-left">
-          <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          <div class="logo">
-            <img src="/logo.png" alt="Felt Pressure Washing Logo" />
-          </div>
-        </div>
-        <div class="nav-buttons">
-          <a href="#estimate" class="cta-estimate">Free Estimate</a>
-          <a href="tel:+15415201761" class="cta-phone">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            Call Now
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Nav Drawer Overlay -->
-  <div class="nav-overlay" id="navOverlay"></div>
-
-  <!-- Nav Drawer -->
-  <nav class="nav-drawer" id="navDrawer" aria-label="Main navigation">
-    <div class="nav-drawer-header">
-      <img src="/logo.png" alt="Felt Pressure Washing" class="nav-drawer-logo" />
-      <button class="nav-close" id="navCloseBtn" aria-label="Close navigation menu">&times;</button>
-    </div>
-    <ul class="nav-drawer-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#estimate">Get Estimate</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Blog</a></li>
-    </ul>
-    <div class="nav-drawer-cta">
-      <a href="tel:+15415201761" class="btn btn-primary">Call (541) 520-1761</a>
-    </div>
-  </nav>
-
+<Layout title="Felt Pressure Washing | Professional Residential & Commercial Cleaning">
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-background"></div>
@@ -73,7 +14,7 @@
           <span class="gradient-text">With Professional Pressure Washing</span>
         </h1>
         <p class="hero-subtitle">
-          Expert exterior cleaning services that restore the beauty of your home or business. 
+          Expert exterior cleaning services that restore the beauty of your home or business.
           See the dramatic difference professional cleaning makes.
         </p>
         <div class="hero-ctas">
@@ -148,7 +89,7 @@
     <div class="container">
       <h2 class="section-title">See The Transformation</h2>
       <p class="section-subtitle">Real results from our recent projects</p>
-      
+
       <div class="gallery-grid">
         <!-- Add your before/after images here -->
         <div class="gallery-item before">
@@ -206,7 +147,7 @@
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="testimonial-text">
-            "My house siding was covered in algae and dirt. They made it look like new construction! 
+            "My house siding was covered in algae and dirt. They made it look like new construction!
             Highly recommend their services."
           </p>
           <div class="testimonial-author">
@@ -225,7 +166,7 @@
         <div class="form-content">
           <h2 class="section-title">Get Your Free Estimate</h2>
           <p class="section-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
-          
+
           <form class="contact-form" id="estimateForm">
             <div class="form-row">
               <div class="form-group">
@@ -237,17 +178,17 @@
                 <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
               </div>
             </div>
-            
+
             <div class="form-group">
               <label for="email">Email Address *</label>
               <input type="email" id="email" name="email" required placeholder="john@example.com">
             </div>
-            
+
             <div class="form-group">
               <label for="address">Property Address *</label>
               <input type="text" id="address" name="address" required placeholder="123 Main St, City, State">
             </div>
-            
+
             <div class="form-group">
               <label for="service">Service Needed *</label>
               <select id="service" name="service" required>
@@ -261,16 +202,16 @@
                 <option value="other">Other / Multiple Services</option>
               </select>
             </div>
-            
+
             <div class="form-group">
               <label for="message">Project Details</label>
               <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
             </div>
-            
+
             <button type="submit" class="btn btn-primary btn-large">Request Free Estimate</button>
           </form>
         </div>
-        
+
         <div class="form-sidebar">
           <div class="contact-info">
             <h3>Contact Information</h3>
@@ -304,7 +245,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="guarantee-badge">
             <div class="badge-icon">✓</div>
             <div>
@@ -316,1231 +257,683 @@
       </div>
     </div>
   </section>
+</Layout>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="/logo.png" alt="Felt Pressure Washing" />
-          <p>Professional exterior cleaning services you can trust</p>
-        </div>
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <a href="#services">Services</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#estimate">Get Estimate</a>
-        </div>
-        <div class="footer-contact">
-          <h4>Get In Touch</h4>
-          <a href="tel:+15415201761">(541) 520-1761</a>
-          <a href="mailto:feltpressurewashingco@gmail.com">feltpressurewashingco@gmail.com</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Felt Pressure Washing. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    padding: 100px 0 80px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+  }
 
-  <style>
-    :root {
-      --primary-blue: #0077BE;
-      --light-blue: #4DB8E8;
-      --accent-blue: #00A3E0;
-      --dark-gray: #2C2C2C;
-      --light-gray: #6B6B6B;
-      --bg-light: #F8FAFB;
-      --white: #FFFFFF;
-      --success: #10B981;
-      --shadow-sm: 0 2px 8px rgba(0, 119, 190, 0.08);
-      --shadow-md: 0 4px 16px rgba(0, 119, 190, 0.12);
-      --shadow-lg: 0 12px 32px rgba(0, 119, 190, 0.16);
-    }
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.4;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(77, 184, 232, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0, 119, 190, 0.15) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+  }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--dark-gray);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+  .hero-badge {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary-blue);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
 
-    /* Header */
-    .header {
-      background: var(--white);
-      box-shadow: var(--shadow-sm);
-      position: sticky;
-      top: 0;
-      z-index: 300;
-      animation: slideDown 0.5s ease-out;
-    }
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--dark-gray);
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
 
-    @keyframes slideDown {
-      from {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-    }
+  .hero-subtitle {
+    font-size: 20px;
+    color: var(--light-gray);
+    margin-bottom: 40px;
+    line-height: 1.7;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+  }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      padding: 0 20px;
-    }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.8s ease-out 0.8s both;
+  }
 
-    .logo img {
-      height: 80px;
-      width: auto;
-      transform: scale(1.4);
-      transform-origin: center;
-      transition: all 0.3s ease;
-    }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out 1s both;
+  }
 
-    .nav-buttons {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+  .stat {
+    text-align: center;
+  }
 
-    /* Header Left Group */
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+  .stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+  }
 
-    /* Hamburger Button */
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      width: 40px;
-      height: 40px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      z-index: 301;
-      flex-shrink: 0;
-    }
+  .stat-label {
+    font-size: 14px;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 3px;
-      background: var(--dark-gray);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
+  /* Services Section */
+  .services {
+    padding: 80px 0;
+    background: var(--white);
+  }
 
-    .hamburger:hover span {
-      background: var(--primary-blue);
-    }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
 
-    /* Nav Overlay */
-    .nav-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 399;
+  .service-card {
+    background: var(--white);
+    padding: 32px;
+    border-radius: 12px;
+    border: 2px solid #E5E7EB;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .service-card:hover {
+    border-color: var(--light-blue);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .service-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--dark-gray);
+  }
+
+  .service-card p {
+    color: var(--light-gray);
+    line-height: 1.6;
+  }
+
+  /* Gallery Section */
+  .gallery {
+    padding: 80px 0;
+    background: var(--bg-light);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: var(--white);
+  }
+
+  /* Before/After badges */
+  .gallery-item.before::before,
+  .gallery-item.after::before {
+    content: 'BEFORE';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    z-index: 10;
+    background: rgba(107, 107, 107, 0.95);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .gallery-item.after::before {
+    content: 'AFTER';
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: var(--white);
+  }
+
+  .gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-gray);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .gallery-placeholder.after {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: var(--white);
+  }
+
+  .placeholder-label {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+  }
+
+  /* Testimonials Section */
+  .testimonials {
+    padding: 80px 0;
+    background: var(--white);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+  }
+
+  .testimonial-card {
+    background: var(--bg-light);
+    padding: 32px;
+    border-radius: 12px;
+    border-left: 4px solid var(--light-blue);
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .stars {
+    color: #FCD34D;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-text {
+    color: var(--dark-gray);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .testimonial-author strong {
+    color: var(--dark-gray);
+    font-weight: 600;
+  }
+
+  .testimonial-author span {
+    color: var(--light-gray);
+    font-size: 14px;
+  }
+
+  /* Estimate Form Section */
+  .estimate-form {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+  }
+
+  .form-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .form-content .section-title,
+  .form-content .section-subtitle {
+    color: var(--white);
+    text-align: left;
+  }
+
+  .contact-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark-gray);
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    color: var(--dark-gray);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.1);
+  }
+
+  .form-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .contact-info {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .contact-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .contact-item svg {
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .contact-item strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .contact-item a,
+  .contact-item span {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .contact-item a:hover {
+    color: var(--light-blue);
+  }
+
+  .guarantee-badge {
+    background: var(--white);
+    color: var(--dark-gray);
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: var(--shadow-md);
+  }
+
+  .badge-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--success), #059669);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .guarantee-badge strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark-gray);
+  }
+
+  .guarantee-badge p {
+    color: var(--light-gray);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Form Messages */
+  .form-message {
+    margin-top: 20px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
       opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+      transform: translateY(-10px);
     }
-
-    .nav-overlay.active {
+    to {
       opacity: 1;
-      visibility: visible;
+      transform: translateY(0);
     }
+  }
 
-    /* Nav Drawer */
-    .nav-drawer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 300px;
-      height: 100%;
-      background: var(--white);
-      z-index: 400;
-      transform: translateX(-100%);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-    }
+  .form-message-success {
+    background: #D1FAE5;
+    color: #065F46;
+    border: 2px solid #10B981;
+  }
 
-    .nav-drawer.open {
-      transform: translateX(0);
-    }
+  .form-message-error {
+    background: #FEE2E2;
+    color: #991B1B;
+    border: 2px solid #EF4444;
+  }
 
-    .nav-drawer-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 24px;
-      border-bottom: 1px solid #E5E7EB;
-    }
-
-    .nav-drawer-logo {
-      height: 50px;
-      width: auto;
-    }
-
-    .nav-close {
-      background: none;
-      border: none;
-      font-size: 32px;
-      cursor: pointer;
-      color: var(--dark-gray);
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      transition: background 0.2s ease;
-    }
-
-    .nav-close:hover {
-      background: var(--bg-light);
-    }
-
-    .nav-drawer-links {
-      list-style: none;
-      padding: 16px 0;
-      margin: 0;
-    }
-
-    .nav-drawer-links li a {
-      display: block;
-      padding: 14px 24px;
-      color: var(--dark-gray);
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 500;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .nav-drawer-links li a:hover {
-      background: var(--bg-light);
-      color: var(--primary-blue);
-    }
-
-    .nav-drawer-cta {
-      padding: 24px;
-      margin-top: auto;
-      border-top: 1px solid #E5E7EB;
-    }
-
-    .nav-drawer-cta .btn {
-      width: 100%;
-      justify-content: center;
-    }
-
-    body.nav-open {
-      overflow: hidden;
-    }
-
-    /* Collapsed header styles */
-    .header.scrolled {
-      padding: 0;
-    }
-
-    .header.scrolled .logo {
-      display: none;
-    }
-
-    .header.scrolled .header-content {
-      justify-content: space-between;
-      padding: 8px 0;
-    }
-
-    .header.scrolled .cta-phone,
-    .header.scrolled .cta-estimate {
-      padding: 8px 18px;
-      font-size: 13px;
-    }
-
-    .cta-estimate {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-      color: var(--white);
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all .3s ease;
-    }
-
-    .cta-estimate:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .cta-phone {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-      color: var(--white);
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .cta-phone:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* Hero Section */
-    .hero {
-      position: relative;
-      padding: 100px 0 80px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
-    }
-
-    .hero-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0.4;
-      background-image: 
-        radial-gradient(circle at 20% 50%, rgba(77, 184, 232, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 119, 190, 0.15) 0%, transparent 50%);
-      animation: float 20s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: var(--white);
-      color: var(--primary-blue);
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
-      animation: fadeInUp 0.8s ease-out 0.2s both;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
+  /* Responsive — Page Content */
+  @media (max-width: 968px) {
     .hero-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 56px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 24px;
-      color: var(--dark-gray);
-      animation: fadeInUp 0.8s ease-out 0.4s both;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-subtitle {
-      font-size: 20px;
-      color: var(--light-gray);
-      margin-bottom: 40px;
-      line-height: 1.7;
-      animation: fadeInUp 0.8s ease-out 0.6s both;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 60px;
-      animation: fadeInUp 0.8s ease-out 0.8s both;
-    }
-
-    .btn {
-      padding: 16px 32px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-      color: var(--white);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .btn-secondary {
-      background: var(--white);
-      color: var(--primary-blue);
-      border: 2px solid var(--primary-blue);
-    }
-
-    .btn-secondary:hover {
-      background: var(--primary-blue);
-      color: var(--white);
-      transform: translateY(-3px);
-    }
-
-    .btn-large {
-      padding: 18px 40px;
-      font-size: 18px;
-      width: 100%;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      max-width: 700px;
-      margin: 0 auto;
-      animation: fadeInUp 0.8s ease-out 1s both;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 48px;
-      font-weight: 700;
-      color: var(--primary-blue);
-      margin-bottom: 8px;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      color: var(--light-gray);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* Services Section */
-    .services {
-      padding: 80px 0;
-      background: var(--white);
-    }
-
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
       font-size: 42px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 16px;
-      color: var(--dark-gray);
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 18px;
-      color: var(--light-gray);
-      margin-bottom: 60px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
-
-    .service-card {
-      background: var(--white);
-      padding: 32px;
-      border-radius: 12px;
-      border: 2px solid #E5E7EB;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .service-card:hover {
-      border-color: var(--light-blue);
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .service-icon {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--dark-gray);
-    }
-
-    .service-card p {
-      color: var(--light-gray);
-      line-height: 1.6;
-    }
-
-    /* Gallery Section */
-    .gallery {
-      padding: 80px 0;
-      background: var(--bg-light);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.02);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      background: var(--white);
-    }
-
-    /* Before/After badges */
-    .gallery-item.before::before,
-    .gallery-item.after::before {
-      content: 'BEFORE';
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 1px;
-      z-index: 10;
-      background: rgba(107, 107, 107, 0.95);
-      color: var(--white);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .gallery-item.after::before {
-      content: 'AFTER';
-      background: linear-gradient(135deg, #10B981, #059669);
-      color: var(--white);
-    }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--light-gray);
-      padding: 20px;
-      text-align: center;
-    }
-
-    .gallery-placeholder.after {
-      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-      color: var(--white);
-    }
-
-    .placeholder-label {
-      font-weight: 700;
-      font-size: 24px;
-      margin-bottom: 12px;
-      letter-spacing: 2px;
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      padding: 80px 0;
-      background: var(--white);
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-    }
-
-    .testimonial-card {
-      background: var(--bg-light);
-      padding: 32px;
-      border-radius: 12px;
-      border-left: 4px solid var(--light-blue);
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .stars {
-      color: #FCD34D;
-      font-size: 20px;
-      margin-bottom: 16px;
-    }
-
-    .testimonial-text {
-      color: var(--dark-gray);
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .testimonial-author strong {
-      color: var(--dark-gray);
-      font-weight: 600;
-    }
-
-    .testimonial-author span {
-      color: var(--light-gray);
-      font-size: 14px;
-    }
-
-    /* Estimate Form Section */
-    .estimate-form {
-      padding: 80px 0;
-      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-      color: var(--white);
     }
 
     .form-wrapper {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .form-content .section-title,
-    .form-content .section-subtitle {
-      color: var(--white);
-      text-align: left;
-    }
-
-    .contact-form {
-      background: var(--white);
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: var(--shadow-lg);
+      grid-template-columns: 1fr;
     }
 
     .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 32px;
     }
 
-    .form-group {
-      margin-bottom: 24px;
+    .hero-subtitle {
+      font-size: 16px;
     }
 
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--dark-gray);
-      font-weight: 500;
-      font-size: 14px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px;
-      border: 2px solid #E5E7EB;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      color: var(--dark-gray);
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary-blue);
-      box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.1);
-    }
-
-    .form-sidebar {
-      display: flex;
+    .hero-ctas {
       flex-direction: column;
-      gap: 32px;
     }
 
-    .contact-info {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 32px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .contact-info h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 22px;
-      margin-bottom: 24px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-      align-items: flex-start;
-    }
-
-    .contact-item svg {
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-
-    .contact-item strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .contact-item a,
-    .contact-item span {
-      color: var(--white);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .contact-item a:hover {
-      color: var(--light-blue);
-    }
-
-    .guarantee-badge {
-      background: var(--white);
-      color: var(--dark-gray);
-      padding: 24px;
-      border-radius: 12px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      box-shadow: var(--shadow-md);
-    }
-
-    .badge-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--success), #059669);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
+    .btn {
+      width: 100%;
       justify-content: center;
-      font-size: 24px;
-      font-weight: 700;
-      flex-shrink: 0;
     }
 
-    .guarantee-badge strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--dark-gray);
+    .gallery-grid {
+      grid-template-columns: 1fr;
     }
+  }
+</style>
 
-    .guarantee-badge p {
-      color: var(--light-gray);
-      font-size: 14px;
-      line-height: 1.5;
-      margin: 0;
-    }
+<script>
+  // ===========================================
+  // FORM CONFIGURATION
+  // ===========================================
+  // To switch from Google Sheets to Airtable:
+  // 1. Comment out GOOGLE_SHEETS_ENDPOINT
+  // 2. Uncomment AIRTABLE_ENDPOINT and add your details
+  // 3. That's it! The rest of the code works the same
 
-    /* Footer */
-    .footer {
-      background: var(--dark-gray);
-      color: var(--white);
-      padding: 60px 0 20px;
-    }
+  const GOOGLE_SHEETS_ENDPOINT = import.meta.env.PUBLIC_GOOGLE_SHEETS_URL || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
 
-    .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 40px;
-    }
+  // For future Airtable migration:
+  // const AIRTABLE_ENDPOINT = 'https://api.airtable.com/v0/YOUR_BASE_ID/YOUR_TABLE_NAME';
+  // const AIRTABLE_API_KEY = 'YOUR_AIRTABLE_API_KEY';
 
-    .footer-logo img {
-      height: 90px;
-      margin-bottom: 16px;
-    }
+  // ===========================================
+  // FORM SUBMISSION HANDLER
+  // ===========================================
+  const estimateForm = document.getElementById('estimateForm');
+  if (estimateForm) {
+    estimateForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-    .footer-logo p {
-      color: #9CA3AF;
-      font-size: 14px;
-    }
+      const target = e.target as HTMLFormElement;
+      const submitButton = target.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalButtonText = submitButton.textContent;
 
-    .footer-links h4,
-    .footer-contact h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
+      // Show loading state
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
 
-    .footer-links a,
-    .footer-contact a {
-      display: block;
-      color: #9CA3AF;
-      text-decoration: none;
-      margin-bottom: 12px;
-      transition: all 0.3s ease;
-    }
-
-    .footer-links a:hover,
-    .footer-contact a:hover {
-      color: var(--light-blue);
-      transform: translateX(4px);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 20px;
-      text-align: center;
-      color: #9CA3AF;
-      font-size: 14px;
-    }
-
-    .footer-bottom p {
-      margin: 0;
-    }
-
-    /* Form Messages */
-    .form-message {
-      margin-top: 20px;
-      padding: 16px 20px;
-      border-radius: 8px;
-      font-weight: 500;
-      animation: slideIn 0.3s ease-out;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .form-message-success {
-      background: #D1FAE5;
-      color: #065F46;
-      border: 2px solid #10B981;
-    }
-
-    .form-message-error {
-      background: #FEE2E2;
-      color: #991B1B;
-      border: 2px solid #EF4444;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 968px) {
-      .hero-title {
-        font-size: 42px;
-      }
-
-      .form-wrapper {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero-title {
-        font-size: 32px;
-      }
-
-      .hero-subtitle {
-        font-size: 16px;
-      }
-
-      .section-title {
-        font-size: 32px;
-      }
-
-      .hero-ctas {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .header-content {
-        padding: 10px 0;
-      }
-
-      .header-left {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .logo img {
-        height: 55px;
-        transform: scale(1.3);
-      }
-
-      .nav-buttons {
-        display: none;
-      }
-
-      .header.scrolled .header-left {
-        justify-content: flex-start;
-      }
-
-      .header.scrolled .header-content {
-        padding: 8px 0;
-      }
-
-      .nav-drawer {
-        width: 280px;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
-  <script>
-    // ===========================================
-    // FORM CONFIGURATION
-    // ===========================================
-    // To switch from Google Sheets to Airtable:
-    // 1. Comment out GOOGLE_SHEETS_ENDPOINT
-    // 2. Uncomment AIRTABLE_ENDPOINT and add your details
-    // 3. That's it! The rest of the code works the same
-
-    const GOOGLE_SHEETS_ENDPOINT = import.meta.env.PUBLIC_GOOGLE_SHEETS_URL || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
-
-    // For future Airtable migration:
-    // const AIRTABLE_ENDPOINT = 'https://api.airtable.com/v0/YOUR_BASE_ID/YOUR_TABLE_NAME';
-    // const AIRTABLE_API_KEY = 'YOUR_AIRTABLE_API_KEY';
-
-    // ===========================================
-    // FORM SUBMISSION HANDLER
-    // ===========================================
-    const estimateForm = document.getElementById('estimateForm');
-    if (estimateForm) {
-      estimateForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        const target = e.target as HTMLFormElement;
-        const submitButton = target.querySelector('button[type="submit"]') as HTMLButtonElement;
-        const originalButtonText = submitButton.textContent;
-
-        // Show loading state
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-
-        try {
-          // Get form data
-          const formData = new FormData(target);
-          const data = Object.fromEntries(formData);
-
-          // Structure data (same format for both Google Sheets and Airtable)
-          const requestData = {
-            name: data.name,
-            phone: data.phone,
-            email: data.email,
-            address: data.address,
-            service: data.service,
-            message: data.message || ''
-          };
-
-          // Send to Google Sheets
-          const response = await submitToGoogleSheets(requestData);
-
-          // For Airtable migration, just replace the above line with:
-          // const response = await submitToAirtable(requestData);
-
-          if (response.success) {
-            // Show success message
-            showMessage('success', 'Thank you! We\'ll contact you within 24 hours with your free estimate.');
-
-            // Reset form
-            target.reset();
-          } else {
-            throw new Error(response.message || 'Submission failed');
-          }
-
-        } catch (error) {
-          console.error('Form submission error:', error);
-          showMessage('error', 'Something went wrong. Please call us directly at (541) 520-1761 or try again.');
-        } finally {
-          // Reset button
-          submitButton.disabled = false;
-          submitButton.textContent = originalButtonText || 'Request Free Estimate';
-        }
-      });
-    }
-
-    // ===========================================
-    // GOOGLE SHEETS SUBMISSION
-    // ===========================================
-    async function submitToGoogleSheets(data: any) {
       try {
-        const response = await fetch(GOOGLE_SHEETS_ENDPOINT, {
-          method: 'POST',
-          mode: 'no-cors', // Google Sheets requires this
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
+        // Get form data
+        const formData = new FormData(target);
+        const data = Object.fromEntries(formData);
 
-        // Note: no-cors means we can't read the response
-        // But if no error is thrown, it worked
-        return { success: true };
+        // Structure data (same format for both Google Sheets and Airtable)
+        const requestData = {
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          address: data.address,
+          service: data.service,
+          message: data.message || ''
+        };
+
+        // Send to Google Sheets
+        const response = await submitToGoogleSheets(requestData);
+
+        // For Airtable migration, just replace the above line with:
+        // const response = await submitToAirtable(requestData);
+
+        if (response.success) {
+          // Show success message
+          showMessage('success', 'Thank you! We\'ll contact you within 24 hours with your free estimate.');
+
+          // Reset form
+          target.reset();
+        } else {
+          throw new Error(response.message || 'Submission failed');
+        }
 
       } catch (error) {
-        console.error('Google Sheets error:', error);
-        return { success: false, message: (error as Error).message };
+        console.error('Form submission error:', error);
+        showMessage('error', 'Something went wrong. Please call us directly at (541) 520-1761 or try again.');
+      } finally {
+        // Reset button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText || 'Request Free Estimate';
       }
-    }
+    });
+  }
 
-    // ===========================================
-    // AIRTABLE SUBMISSION (for future migration)
-    // ===========================================
-    async function submitToAirtable(data: any) {
-      try {
-        const AIRTABLE_ENDPOINT = 'https://api.airtable.com/v0/YOUR_BASE_ID/YOUR_TABLE_NAME';
-        const AIRTABLE_API_KEY = 'YOUR_AIRTABLE_API_KEY';
-
-        const response = await fetch(AIRTABLE_ENDPOINT, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            fields: {
-              Name: data.name,
-              Phone: data.phone,
-              Email: data.email,
-              Address: data.address,
-              Service: data.service,
-              Message: data.message,
-              Status: 'New',
-              'Created At': new Date().toISOString()
-            }
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error('Airtable submission failed');
-        }
-
-        return { success: true };
-
-      } catch (error) {
-        console.error('Airtable error:', error);
-        return { success: false, message: (error as Error).message };
-      }
-    }
-
-    // ===========================================
-    // UI HELPERS
-    // ===========================================
-    function showMessage(type: string, text: string) {
-      // Remove existing messages
-      const existing = document.querySelector('.form-message');
-      if (existing) existing.remove();
-
-      // Create new message
-      const message = document.createElement('div');
-      message.className = `form-message form-message-${type}`;
-      message.textContent = text;
-
-      // Insert after form
-      const form = document.getElementById('estimateForm');
-      if (form && form.parentNode) {
-        form.parentNode.insertBefore(message, form.nextSibling);
-      }
-
-      // Auto-remove after 10 seconds
-      setTimeout(() => message.remove(), 10000);
-    }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const href = anchor.getAttribute('href');
-        if (href) {
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        }
+  // ===========================================
+  // GOOGLE SHEETS SUBMISSION
+  // ===========================================
+  async function submitToGoogleSheets(data: any) {
+    try {
+      const response = await fetch(GOOGLE_SHEETS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors', // Google Sheets requires this
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
       });
-    });
 
-    // ===========================================
-    // NAV DRAWER TOGGLE
-    // ===========================================
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const navDrawer = document.getElementById('navDrawer');
-    const navOverlay = document.getElementById('navOverlay');
-    const navCloseBtn = document.getElementById('navCloseBtn');
+      // Note: no-cors means we can't read the response
+      // But if no error is thrown, it worked
+      return { success: true };
 
-    function openDrawer() {
-      navDrawer?.classList.add('open');
-      navOverlay?.classList.add('active');
-      document.body.classList.add('nav-open');
-      hamburgerBtn?.setAttribute('aria-expanded', 'true');
+    } catch (error) {
+      console.error('Google Sheets error:', error);
+      return { success: false, message: (error as Error).message };
     }
+  }
 
-    function closeDrawer() {
-      navDrawer?.classList.remove('open');
-      navOverlay?.classList.remove('active');
-      document.body.classList.remove('nav-open');
-      hamburgerBtn?.setAttribute('aria-expanded', 'false');
-    }
+  // ===========================================
+  // AIRTABLE SUBMISSION (for future migration)
+  // ===========================================
+  async function submitToAirtable(data: any) {
+    try {
+      const AIRTABLE_ENDPOINT = 'https://api.airtable.com/v0/YOUR_BASE_ID/YOUR_TABLE_NAME';
+      const AIRTABLE_API_KEY = 'YOUR_AIRTABLE_API_KEY';
 
-    hamburgerBtn?.addEventListener('click', openDrawer);
-    navCloseBtn?.addEventListener('click', closeDrawer);
-    navOverlay?.addEventListener('click', closeDrawer);
+      const response = await fetch(AIRTABLE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fields: {
+            Name: data.name,
+            Phone: data.phone,
+            Email: data.email,
+            Address: data.address,
+            Service: data.service,
+            Message: data.message,
+            Status: 'New',
+            'Created At': new Date().toISOString()
+          }
+        })
+      });
 
-    // Close drawer when a nav link is clicked
-    document.querySelectorAll('.nav-drawer-links a').forEach(link => {
-      link.addEventListener('click', closeDrawer);
-    });
-
-    // Close drawer on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeDrawer();
-    });
-
-    // Collapsing header on scroll
-    let lastScroll = 0;
-    const header = document.querySelector('.header') as HTMLElement;
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-
-      if (currentScroll > 100) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+      if (!response.ok) {
+        throw new Error('Airtable submission failed');
       }
 
-      lastScroll = currentScroll;
-    });
-  </script>
-</body>
-</html>
+      return { success: true };
+
+    } catch (error) {
+      console.error('Airtable error:', error);
+      return { success: false, message: (error as Error).message };
+    }
+  }
+
+  // ===========================================
+  // UI HELPERS
+  // ===========================================
+  function showMessage(type: string, text: string) {
+    // Remove existing messages
+    const existing = document.querySelector('.form-message');
+    if (existing) existing.remove();
+
+    // Create new message
+    const message = document.createElement('div');
+    message.className = `form-message form-message-${type}`;
+    message.textContent = text;
+
+    // Insert after form
+    const form = document.getElementById('estimateForm');
+    if (form && form.parentNode) {
+      form.parentNode.insertBefore(message, form.nextSibling);
+    }
+
+    // Auto-remove after 10 seconds
+    setTimeout(() => message.remove(), 10000);
+  }
+</script>
