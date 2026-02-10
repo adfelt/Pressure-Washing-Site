@@ -18,8 +18,15 @@
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <div class="logo">
-          <img src="/logo.png" alt="Felt Pressure Washing Logo" />
+        <div class="header-left">
+          <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="logo">
+            <img src="/logo.png" alt="Felt Pressure Washing Logo" />
+          </div>
         </div>
         <div class="nav-buttons">
           <a href="#estimate" class="cta-estimate">Free Estimate</a>
@@ -33,6 +40,27 @@
       </div>
     </div>
   </header>
+
+  <!-- Nav Drawer Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Nav Drawer -->
+  <nav class="nav-drawer" id="navDrawer" aria-label="Main navigation">
+    <div class="nav-drawer-header">
+      <img src="/logo.png" alt="Felt Pressure Washing" class="nav-drawer-logo" />
+      <button class="nav-close" id="navCloseBtn" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <ul class="nav-drawer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#estimate">Get Estimate</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <div class="nav-drawer-cta">
+      <a href="tel:+15415201761" class="btn btn-primary">Call (541) 520-1761</a>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -76,7 +104,7 @@
   </section>
 
   <!-- Services Section -->
-  <section class="services">
+  <section class="services" id="services">
     <div class="container">
       <h2 class="section-title">Our Services</h2>
       <p class="section-subtitle">Professional cleaning solutions for every surface</p>
@@ -397,6 +425,151 @@
       gap: 12px;
     }
 
+    /* Header Left Group */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Hamburger Button */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 301;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 3px;
+      background: var(--dark-gray);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger:hover span {
+      background: var(--primary-blue);
+    }
+
+    /* Nav Overlay */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 399;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Nav Drawer */
+    .nav-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      background: var(--white);
+      z-index: 400;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .nav-drawer.open {
+      transform: translateX(0);
+    }
+
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .nav-drawer-logo {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-close {
+      background: none;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+      color: var(--dark-gray);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .nav-close:hover {
+      background: var(--bg-light);
+    }
+
+    .nav-drawer-links {
+      list-style: none;
+      padding: 16px 0;
+      margin: 0;
+    }
+
+    .nav-drawer-links li a {
+      display: block;
+      padding: 14px 24px;
+      color: var(--dark-gray);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-drawer-links li a:hover {
+      background: var(--bg-light);
+      color: var(--primary-blue);
+    }
+
+    .nav-drawer-cta {
+      padding: 24px;
+      margin-top: auto;
+      border-top: 1px solid #E5E7EB;
+    }
+
+    .nav-drawer-cta .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    body.nav-open {
+      overflow: hidden;
+    }
+
     /* Collapsed header styles */
     .header.scrolled {
       padding: 0;
@@ -407,7 +580,7 @@
     }
 
     .header.scrolled .header-content {
-      justify-content: center;
+      justify-content: space-between;
       padding: 8px 0;
     }
 
@@ -1105,8 +1278,12 @@
       }
 
       .header-content {
-        flex-direction: column;
-        gap: 12px;
+        padding: 10px 0;
+      }
+
+      .header-left {
+        width: 100%;
+        justify-content: space-between;
       }
 
       .logo img {
@@ -1115,25 +1292,19 @@
       }
 
       .nav-buttons {
-        gap: 8px;
-        width: 100%;
-        justify-content: center;
+        display: none;
       }
 
-      .cta-phone,
-      .cta-estimate {
-        padding: 10px 16px;
-        font-size: 13px;
+      .header.scrolled .header-left {
+        justify-content: flex-start;
       }
 
       .header.scrolled .header-content {
-        padding: 6px 0;
+        padding: 8px 0;
       }
 
-      .header.scrolled .cta-phone,
-      .header.scrolled .cta-estimate {
-        padding: 8px 14px;
-        font-size: 12px;
+      .nav-drawer {
+        width: 280px;
       }
 
       .gallery-grid {
@@ -1317,6 +1488,42 @@
           }
         }
       });
+    });
+
+    // ===========================================
+    // NAV DRAWER TOGGLE
+    // ===========================================
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navDrawer = document.getElementById('navDrawer');
+    const navOverlay = document.getElementById('navOverlay');
+    const navCloseBtn = document.getElementById('navCloseBtn');
+
+    function openDrawer() {
+      navDrawer?.classList.add('open');
+      navOverlay?.classList.add('active');
+      document.body.classList.add('nav-open');
+      hamburgerBtn?.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDrawer() {
+      navDrawer?.classList.remove('open');
+      navOverlay?.classList.remove('active');
+      document.body.classList.remove('nav-open');
+      hamburgerBtn?.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburgerBtn?.addEventListener('click', openDrawer);
+    navCloseBtn?.addEventListener('click', closeDrawer);
+    navOverlay?.addEventListener('click', closeDrawer);
+
+    // Close drawer when a nav link is clicked
+    document.querySelectorAll('.nav-drawer-links a').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    // Close drawer on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDrawer();
     });
 
     // Collapsing header on scroll
