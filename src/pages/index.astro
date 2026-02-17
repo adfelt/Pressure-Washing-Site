@@ -50,36 +50,36 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="section-title">Our Services</h2>
       <p class="section-subtitle">Professional cleaning solutions for every surface</p>
       <div class="services-grid">
-        <div class="service-card">
+        <a href="/services/house-washing" class="service-card">
           <div class="service-icon">🏠</div>
           <h3>House Washing</h3>
           <p>Gentle yet effective cleaning for siding, brick, and stucco. Restore your home's curb appeal.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="/services/driveway-concrete" class="service-card">
           <div class="service-icon">🚗</div>
           <h3>Driveway & Concrete</h3>
           <p>Remove oil stains, dirt, and grime from driveways, sidewalks, and patios.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="/services/commercial-cleaning" class="service-card">
           <div class="service-icon">🏢</div>
-          <h3>Commercial & Storefron Cleaning</h3>
+          <h3>Commercial & Storefront Cleaning</h3>
           <p>Keep your business looking professional with regular exterior maintenance.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="/services/window-cleaning" class="service-card">
           <div class="service-icon">🪟</div>
           <h3>Window Cleaning</h3>
           <p>Crystal clear windows that let the light shine through.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="/services/deck-fence" class="service-card">
           <div class="service-icon">🪵</div>
           <h3>Deck & Fence Washing</h3>
           <p>Restore and protect your outdoor wood surfaces from weathering.</p>
-        </div>
-        <div class="service-card">
+        </a>
+        <a href="/services/preventative-care" class="service-card">
           <div class="service-icon">🛡️</div>
           <h3>Preventative Care</h3>
           <p>Prevent moss and algae growth and extend the clean with a simple one time or recurring preventative treatment.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -390,6 +390,9 @@ import Layout from '../layouts/Layout.astro';
     border: 2px solid #E5E7EB;
     transition: all 0.3s ease;
     text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
 
   .service-card:hover {

@@ -1,0 +1,260 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Driveway & Concrete Cleaning | Felt Pressure Washing" description="Professional driveway and concrete cleaning in Eugene, Springfield and surrounding areas. Remove oil stains, dirt, and grime.">
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-icon-lg">🚗</div>
+      <h1 class="section-title">Driveway & Concrete</h1>
+      <p class="section-subtitle">Remove stubborn stains and restore your concrete surfaces</p>
+    </div>
+  </section>
+
+  <section class="service-details">
+    <div class="container">
+      <div class="service-content">
+        <h2>Make Your Concrete Look New Again</h2>
+        <p>
+          Driveways, sidewalks, and patios take a beating from vehicles, foot traffic, weather, and organic
+          growth. Over time they become discolored and slippery. Our high-pressure concrete cleaning blasts
+          away years of buildup, revealing the clean surface underneath.
+        </p>
+        <p>
+          We use professional-grade surface cleaners that deliver an even, streak-free finish every time.
+          Oil stains, tire marks, rust, moss, and algae — we've seen it all and can handle it all.
+        </p>
+
+        <h3>Surfaces We Clean</h3>
+        <ul class="service-list">
+          <li>Driveways and garage floors</li>
+          <li>Sidewalks and walkways</li>
+          <li>Patios and pool decks</li>
+          <li>Parking lots and curbs</li>
+          <li>Retaining walls and steps</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Can you remove oil stains from my driveway?</summary>
+          <p>Yes! We use hot water and specialized degreasers to break down oil and grease stains. While very old or deeply absorbed stains may not come out 100%, most stains see a dramatic improvement.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will pressure washing damage my concrete?</summary>
+          <p>No. Concrete is a hard surface that can handle high-pressure cleaning. We use the appropriate pressure level and professional surface cleaning equipment to ensure an even clean without etching or streaking.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How often should concrete be cleaned?</summary>
+          <p>We recommend cleaning driveways and walkways every 1-2 years. Areas with heavy shade or moisture may need more frequent cleaning to prevent moss and algae growth.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you clean stamped or decorative concrete?</summary>
+          <p>Absolutely. We adjust our pressure and technique for stamped, stained, or decorative concrete to clean it safely without damaging the finish or pattern.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does it take to clean a driveway?</summary>
+          <p>A standard two-car driveway typically takes 1-2 hours. Larger surfaces or heavily stained areas may take longer. We'll let you know the expected timeframe with your estimate.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Ready for a Cleaner Driveway?</h2>
+        <p>Get a free estimate today — no obligation, no pressure.</p>
+        <a href="/#estimate" class="btn btn-primary">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: 60px 0 30px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    text-align: center;
+  }
+
+  .service-icon-lg {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .service-details {
+    padding: 50px 0;
+  }
+
+  .service-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+  }
+
+  .service-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .service-content p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 16px;
+    max-width: 800px;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-list li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--dark-gray);
+    font-weight: 500;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .service-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+  }
+
+  .faq-section {
+    padding: 50px 0;
+    background: var(--bg-light);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow-md);
+    border-color: var(--light-blue);
+  }
+
+  .faq-item summary {
+    padding: 18px 24px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item p {
+    padding: 0 24px 18px;
+    color: var(--light-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .service-cta {
+    padding: 50px 0;
+  }
+
+  .cta-block {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+    padding: 48px 40px;
+    border-radius: 16px;
+  }
+
+  .cta-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .cta-block p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 640px) {
+    .service-hero {
+      padding: 60px 0 30px;
+    }
+
+    .service-content h2 {
+      font-size: 24px;
+    }
+
+    .cta-block {
+      padding: 40px 24px;
+    }
+
+    .cta-block h2 {
+      font-size: 24px;
+    }
+
+    .faq-item summary {
+      font-size: 15px;
+      padding: 16px 20px;
+    }
+
+    .faq-item p {
+      padding: 0 20px 16px;
+      font-size: 14px;
+    }
+  }
+</style>

@@ -1,0 +1,263 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="House Washing | Felt Pressure Washing" description="Professional house washing services in Eugene, Springfield and surrounding areas. Gentle soft washing for siding, brick, and stucco.">
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-icon-lg">🏠</div>
+      <h1 class="section-title">House Washing</h1>
+      <p class="section-subtitle">Gentle yet effective cleaning that restores your home's curb appeal</p>
+    </div>
+  </section>
+
+  <section class="service-details">
+    <div class="container">
+      <div class="service-content">
+        <h2>Restore Your Home's Beauty</h2>
+        <p>
+          Over time, your home's exterior collects dirt, algae, mildew, and environmental grime that dulls its
+          appearance and can even cause damage. Our professional house washing service uses low-pressure soft
+          washing techniques to safely and thoroughly clean all types of exterior surfaces.
+        </p>
+        <p>
+          Whether your home has vinyl siding, brick, stucco, or wood, we adjust our approach to match the
+          material — delivering a deep clean without any risk of damage. The result is a home that looks fresh,
+          well-maintained, and inviting.
+        </p>
+
+        <h3>What We Clean</h3>
+        <ul class="service-list">
+          <li>Vinyl, aluminum, and wood siding</li>
+          <li>Brick and stone exteriors</li>
+          <li>Stucco surfaces</li>
+          <li>Soffits, fascia, and eaves</li>
+          <li>Gutters (exterior cleaning)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Will pressure washing damage my siding?</summary>
+          <p>No — we use soft washing techniques with low pressure and specialized cleaning solutions. This is safe for all siding types including vinyl, wood, and stucco. High-pressure washing is only used on hard surfaces like concrete.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How often should I have my house washed?</summary>
+          <p>We recommend having your home's exterior washed once a year to prevent buildup of algae, mold, and grime. Homes surrounded by trees or in shaded areas may benefit from washing every 6-8 months.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to be home during the wash?</summary>
+          <p>Not necessarily. As long as we have access to water and the areas being cleaned, you don't need to be present. We'll coordinate with you ahead of time.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does a house wash take?</summary>
+          <p>Most homes take 1-3 hours depending on size and how much buildup is present. We'll give you an estimated timeframe when we provide your quote.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are your cleaning solutions safe for plants and pets?</summary>
+          <p>Yes. We use eco-friendly, biodegradable cleaning solutions. We also take precautions to rinse and protect your landscaping during the process.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Ready for a Cleaner Home?</h2>
+        <p>Get a free estimate today — no obligation, no pressure.</p>
+        <a href="/#estimate" class="btn btn-primary">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: 60px 0 30px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    text-align: center;
+  }
+
+  .service-icon-lg {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .service-details {
+    padding: 50px 0;
+  }
+
+  .service-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+  }
+
+  .service-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .service-content p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 16px;
+    max-width: 800px;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-list li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--dark-gray);
+    font-weight: 500;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .service-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 50px 0;
+    background: var(--bg-light);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow-md);
+    border-color: var(--light-blue);
+  }
+
+  .faq-item summary {
+    padding: 18px 24px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item p {
+    padding: 0 24px 18px;
+    color: var(--light-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* CTA */
+  .service-cta {
+    padding: 50px 0;
+  }
+
+  .cta-block {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+    padding: 48px 40px;
+    border-radius: 16px;
+  }
+
+  .cta-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .cta-block p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 640px) {
+    .service-hero {
+      padding: 60px 0 30px;
+    }
+
+    .service-content h2 {
+      font-size: 24px;
+    }
+
+    .cta-block {
+      padding: 40px 24px;
+    }
+
+    .cta-block h2 {
+      font-size: 24px;
+    }
+
+    .faq-item summary {
+      font-size: 15px;
+      padding: 16px 20px;
+    }
+
+    .faq-item p {
+      padding: 0 20px 16px;
+      font-size: 14px;
+    }
+  }
+</style>

@@ -1,0 +1,261 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Deck & Fence Washing | Felt Pressure Washing" description="Professional deck and fence cleaning in Eugene, Springfield and surrounding areas. Restore and protect your outdoor wood surfaces.">
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-icon-lg">🪵</div>
+      <h1 class="section-title">Deck & Fence Washing & Restoration</h1>
+      <p class="section-subtitle">Restore and protect your outdoor wood surfaces from weathering</p>
+    </div>
+  </section>
+
+  <section class="service-details">
+    <div class="container">
+      <div class="service-content">
+        <h2>Bring Your Wood Back to Life</h2>
+        <p>
+          Oregon's wet climate is tough on wood. Decks, fences, and pergolas quickly develop moss, algae,
+          mildew, and gray weathering that makes them look old and neglected. Left untreated, this buildup
+          can actually break down the wood fibers and shorten the life of your structures.
+        </p>
+        <p>
+          Our deck and fence cleaning uses the right pressure and cleaning solutions for the type of wood
+          you have. We carefully remove all organic growth and grime without damaging the wood grain,
+          leaving surfaces ready for staining, sealing, or just looking great on their own. Ask about our oxadizing brightening add on as well.
+        </p>
+
+        <h3>What We Clean</h3>
+        <ul class="service-list">
+          <li>Wood and composite decks</li>
+          <li>Cedar, pine, and redwood fences</li>
+          <li>Pergolas and gazebos</li>
+          <li>Railings and balusters</li>
+          <li>Outdoor stairs and landings</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Will pressure washing damage my deck?</summary>
+          <p>Not when done correctly. We use lower pressure settings and fan tips specifically designed for wood surfaces. High pressure can splinter and etch wood, which is why we take a controlled approach. Your deck is in safe hands.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Should I clean my deck before staining or sealing?</summary>
+          <p>Absolutely. Cleaning before staining is essential — stain won't adhere properly to dirty or mildewed wood. Our cleaning process opens up the wood pores so stain can penetrate evenly and last longer.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you clean composite decking?</summary>
+          <p>Yes. Composite decking still gets dirty and develops algae. We adjust our cleaning method for composite materials, using the right pressure and solutions to clean without damaging the surface.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How often should I have my deck cleaned?</summary>
+          <p>In Oregon's climate, we recommend cleaning your deck annually. This prevents moss and algae from taking hold and keeps the wood in good condition. If your deck is in heavy shade, twice a year may be beneficial.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you offer staining or sealing after cleaning?</summary>
+          <p>Our focus is on the cleaning and preparation. We can recommend trusted local professionals for staining and sealing, or discuss options when we're on-site.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Ready to Restore Your Deck or Fence?</h2>
+        <p>Get a free estimate today — no obligation, no pressure.</p>
+        <a href="/#estimate" class="btn btn-primary">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: 60px 0 30px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    text-align: center;
+  }
+
+  .service-icon-lg {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .service-details {
+    padding: 50px 0;
+  }
+
+  .service-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+  }
+
+  .service-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .service-content p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 16px;
+    max-width: 800px;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-list li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--dark-gray);
+    font-weight: 500;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .service-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+  }
+
+  .faq-section {
+    padding: 50px 0;
+    background: var(--bg-light);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow-md);
+    border-color: var(--light-blue);
+  }
+
+  .faq-item summary {
+    padding: 18px 24px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item p {
+    padding: 0 24px 18px;
+    color: var(--light-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .service-cta {
+    padding: 50px 0;
+  }
+
+  .cta-block {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+    padding: 48px 40px;
+    border-radius: 16px;
+  }
+
+  .cta-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .cta-block p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 640px) {
+    .service-hero {
+      padding: 60px 0 30px;
+    }
+
+    .service-content h2 {
+      font-size: 24px;
+    }
+
+    .cta-block {
+      padding: 40px 24px;
+    }
+
+    .cta-block h2 {
+      font-size: 24px;
+    }
+
+    .faq-item summary {
+      font-size: 15px;
+      padding: 16px 20px;
+    }
+
+    .faq-item p {
+      padding: 0 20px 16px;
+      font-size: 14px;
+    }
+  }
+</style>

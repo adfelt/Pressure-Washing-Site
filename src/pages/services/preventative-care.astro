@@ -1,0 +1,261 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Preventative Care | Felt Pressure Washing" description="Preventative moss and algae treatment in Eugene, Springfield and surrounding areas. Stop growth before it starts.">
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-icon-lg">🛡️</div>
+      <h1 class="section-title">Preventative Care</h1>
+      <p class="section-subtitle">Stop moss and algae before they take hold</p>
+    </div>
+  </section>
+
+  <section class="service-details">
+    <div class="container">
+      <div class="service-content">
+        <h2>Protection That Lasts</h2>
+        <p>
+          In the Pacific Northwest, moss and algae are a constant battle. Instead of waiting for buildup
+          to become a problem, our preventative care treatments stop growth before it starts. A simple
+          application keeps your surfaces cleaner for longer and extends the time between deep cleanings.
+        </p>
+        <p>
+          Our preventative treatments work on roofs, siding, decks, fences, concrete, and more. We offer
+          both one-time applications and recurring treatment plans so you can set it and forget it. It's
+          the easiest way to keep your property looking clean year-round.
+        </p>
+
+        <h3>How It Works</h3>
+        <ul class="service-list">
+          <li>Surface assessment and cleaning if needed</li>
+          <li>Application of moss and algae inhibitor</li>
+          <li>Treatments for roofs, siding, decks, and concrete</li>
+          <li>One-time or recurring treatment plans</li>
+          <li>Eco-friendly, surface-safe solutions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How does preventative treatment work?</summary>
+          <p>We apply a specially formulated solution that inhibits the growth of moss, algae, and mildew. It creates a protective barrier on your surfaces that prevents spores from taking root and growing.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does the treatment last?</summary>
+          <p>A single treatment typically lasts 6-12 months depending on the surface, sun exposure, and weather conditions. Shaded areas may need more frequent treatment. We can set up a recurring schedule to keep you covered.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is the treatment safe for my roof?</summary>
+          <p>Yes. Our products are designed specifically for use on roofing materials including asphalt shingles, metal, and tile. The treatment is gentle on surfaces while being tough on organic growth.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do surfaces need to be cleaned first?</summary>
+          <p>For best results, we recommend starting with a clean surface. If there's existing moss or algae buildup, we'll clean it first and then apply the preventative treatment. If your surfaces are already clean, we can go straight to treatment.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is the treatment safe for plants, pets, and kids?</summary>
+          <p>We use eco-friendly, biodegradable products. Once dry, the treated surfaces are safe for people and pets. We also take precautions to protect surrounding landscaping during application.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Protect Your Property Year-Round</h2>
+        <p>Get a free estimate today — no obligation, no pressure.</p>
+        <a href="/#estimate" class="btn btn-primary">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: 60px 0 30px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    text-align: center;
+  }
+
+  .service-icon-lg {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .service-details {
+    padding: 50px 0;
+  }
+
+  .service-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+  }
+
+  .service-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .service-content p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 16px;
+    max-width: 800px;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-list li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--dark-gray);
+    font-weight: 500;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .service-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+  }
+
+  .faq-section {
+    padding: 50px 0;
+    background: var(--bg-light);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow-md);
+    border-color: var(--light-blue);
+  }
+
+  .faq-item summary {
+    padding: 18px 24px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item p {
+    padding: 0 24px 18px;
+    color: var(--light-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .service-cta {
+    padding: 50px 0;
+  }
+
+  .cta-block {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+    padding: 48px 40px;
+    border-radius: 16px;
+  }
+
+  .cta-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .cta-block p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 640px) {
+    .service-hero {
+      padding: 60px 0 30px;
+    }
+
+    .service-content h2 {
+      font-size: 24px;
+    }
+
+    .cta-block {
+      padding: 40px 24px;
+    }
+
+    .cta-block h2 {
+      font-size: 24px;
+    }
+
+    .faq-item summary {
+      font-size: 15px;
+      padding: 16px 20px;
+    }
+
+    .faq-item p {
+      padding: 0 20px 16px;
+      font-size: 14px;
+    }
+  }
+</style>
