@@ -5,12 +5,12 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="About | Felt Pressure Washing" description="Learn about Felt Pressure Washing — professional exterior cleaning services in Eugene, Springfield and surrounding areas.">
   <section class="about-hero">
     <div class="container">
-      <h1 class="section-title">About Felt Pressure Washing</h1>
-      <p class="section-subtitle">Professional exterior cleaning you can trust</p>
+      <h1 class="section-title">Meet the Team</h1>
+      <p class="section-subtitle">The People behind Felt Pressure Washing</p>
     </div>
   </section>
 
-  <section class="about-content">
+  <!-- <section class="about-content">
     <div class="container">
       <div class="about-grid">
         <div class="about-text">
@@ -30,7 +30,6 @@ import Layout from '../layouts/Layout.astro';
           <h2>Why Choose Us</h2>
           <ul class="about-list">
             <li>100% Satisfaction Guaranteed</li>
-            <li>Fully Insured & Licensed</li>
             <li>Eco-Friendly Cleaning Solutions</li>
             <li>Free Estimates — No Obligation</li>
             <li>Serving Eugene, Springfield & Surrounding Areas</li>
@@ -53,6 +52,34 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
+    </div>
+  </section> -->
+
+  <!-- Meet the Owners -->
+  <section class="owners">
+    <div class="container">
+      <!-- <h2 class="section-title">Meet the Team</h2>
+      <p class="section-subtitle">The people behind Felt Pressure Washing</p> -->
+
+      <div class="owner-block">
+        <div class="owner-text">
+          <h3>Andrew & Joshua</h3>
+          <p class="owner-role">Founder & Pro Cleaner</p>
+          <p>
+              Five years ago Andrew started pressure washing on the weekends to earn some extra income. Today Felts Pressure Washing Co has blossomed into a fully
+              formed exterior cleaning company. Bringing along Josh to help clean and grow the business, the two of them have helped dozens of people in Lane county
+              transform tired and worn surfaces into refreshing and tranquil places of beauty!
+          </p>
+        </div>
+        <div class="owner-image">
+          <img src="/gallery/owner-1.jpeg" alt="Andrew Felt" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="container">
       <div class="about-cta">
         <h2>Ready to Transform Your Property?</h2>
         <p>Get a free estimate today — no obligation, no pressure.</p>
@@ -64,20 +91,20 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   .about-hero {
-    padding: 80px 0 40px;
+    padding: 60px 0 30px;
     background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
     text-align: center;
   }
 
   .about-content {
-    padding: 60px 0 80px;
+    padding: 40px 0 60px;
   }
 
   .about-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 60px;
-    margin-bottom: 80px;
+    gap: 40px;
+    margin-bottom: 50px;
   }
 
   .about-text h2 {
@@ -85,8 +112,8 @@ import Layout from '../layouts/Layout.astro';
     font-size: 28px;
     font-weight: 700;
     color: var(--dark-gray);
-    margin-bottom: 16px;
-    margin-top: 40px;
+    margin-bottom: 12px;
+    margin-top: 32px;
   }
 
   .about-text h2:first-child {
@@ -161,11 +188,64 @@ import Layout from '../layouts/Layout.astro';
     margin: 0;
   }
 
+  /* Meet the Owners */
+  .owners {
+    padding: 50px 0;
+    background: var(--bg-light);
+  }
+
+  .owner-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .owner-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .owner-text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 4px;
+  }
+
+  .owner-role {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .owner-text p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  .owner-image {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: var(--shadow-md);
+  }
+
+  .owner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
   .about-cta {
     text-align: center;
     background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
     color: var(--white);
-    padding: 60px 40px;
+    padding: 48px 40px;
     border-radius: 16px;
   }
 
@@ -195,6 +275,16 @@ import Layout from '../layouts/Layout.astro';
     .about-card {
       flex: 1;
     }
+
+    .owner-block {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .owner-image {
+      max-width: 400px;
+      aspect-ratio: 4/3;
+    }
   }
 
   @media (max-width: 640px) {
@@ -212,6 +302,14 @@ import Layout from '../layouts/Layout.astro';
 
     .about-cta h2 {
       font-size: 24px;
+    }
+
+    .owner-text h3 {
+      font-size: 24px;
+    }
+
+    .owner-image {
+      max-width: 100%;
     }
   }
 </style>
