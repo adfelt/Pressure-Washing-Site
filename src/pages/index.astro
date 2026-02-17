@@ -130,7 +130,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
           <div class="testimonial-author">
             <strong>Jensen Taylor</strong>
-            <span>Homeowner</span>
+            <span>Business Employee</span>
           </div>
         </div>
         <div class="testimonial-card">
@@ -175,7 +175,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" pattern="[\d\s\(\)\-\+\.]{10,}" title="Please enter a valid phone number (at least 10 digits)">
+                <span class="field-error" id="phoneError"></span>
               </div>
             </div>
 
@@ -187,6 +188,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="form-group">
               <label for="address">Property Address *</label>
               <input type="text" id="address" name="address" required placeholder="123 Main St, City, State">
+              <span class="field-error" id="addressError"></span>
             </div>
 
             <div class="form-group">
@@ -706,6 +708,24 @@ import Layout from '../layouts/Layout.astro';
     margin: 0;
   }
 
+  /* Field Validation */
+  .field-error {
+    display: none;
+    color: #DC2626;
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .field-error.visible {
+    display: block;
+  }
+
+  .form-group input.invalid,
+  .form-group select.invalid {
+    border-color: #DC2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+  }
+
   /* Form Messages */
   .form-message {
     margin-top: 20px;
@@ -793,6 +813,40 @@ import Layout from '../layouts/Layout.astro';
   // const AIRTABLE_API_KEY = 'YOUR_AIRTABLE_API_KEY';
 
   // ===========================================
+  // FORM VALIDATION
+  // ===========================================
+  function validatePhone(phone: string): boolean {
+    const digits = phone.replace(/\D/g, '');
+    return digits.length >= 10;
+  }
+
+  function validateAddress(address: string): boolean {
+    // Must contain at least a number and some text (e.g. "123 Main St")
+    return /\d/.test(address) && address.trim().length >= 5;
+  }
+
+  function showFieldError(inputId: string, errorId: string, message: string) {
+    const input = document.getElementById(inputId);
+    const error = document.getElementById(errorId);
+    if (input) input.classList.add('invalid');
+    if (error) {
+      error.textContent = message;
+      error.classList.add('visible');
+    }
+  }
+
+  function clearFieldError(inputId: string, errorId: string) {
+    const input = document.getElementById(inputId);
+    const error = document.getElementById(errorId);
+    if (input) input.classList.remove('invalid');
+    if (error) error.classList.remove('visible');
+  }
+
+  // Live validation — clear errors as user types
+  document.getElementById('phone')?.addEventListener('input', () => clearFieldError('phone', 'phoneError'));
+  document.getElementById('address')?.addEventListener('input', () => clearFieldError('address', 'addressError'));
+
+  // ===========================================
   // FORM SUBMISSION HANDLER
   // ===========================================
   const estimateForm = document.getElementById('estimateForm');
@@ -804,15 +858,28 @@ import Layout from '../layouts/Layout.astro';
       const submitButton = target.querySelector('button[type="submit"]') as HTMLButtonElement;
       const originalButtonText = submitButton.textContent;
 
+      // Validate fields
+      const formData = new FormData(target);
+      const data = Object.fromEntries(formData);
+      let hasErrors = false;
+
+      if (!validatePhone(data.phone as string)) {
+        showFieldError('phone', 'phoneError', 'Please enter a valid phone number (at least 10 digits)');
+        hasErrors = true;
+      }
+
+      if (!validateAddress(data.address as string)) {
+        showFieldError('address', 'addressError', 'Please enter a street address (e.g. 123 Main St, Eugene, OR)');
+        hasErrors = true;
+      }
+
+      if (hasErrors) return;
+
       // Show loading state
       submitButton.disabled = true;
       submitButton.textContent = 'Sending...';
 
       try {
-        // Get form data
-        const formData = new FormData(target);
-        const data = Object.fromEntries(formData);
-
         // Structure data (same format for both Google Sheets and Airtable)
         const requestData = {
           name: data.name,
