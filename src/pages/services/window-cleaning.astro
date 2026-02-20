@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
 ---
 
 <Layout title="Window Cleaning | Felt Pressure Washing" description="Professional window cleaning services in Eugene, Springfield and surrounding areas. Crystal clear windows for homes and businesses.">
@@ -13,27 +14,39 @@ import Layout from '../../layouts/Layout.astro';
 
   <section class="service-details">
     <div class="container">
-      <div class="service-content">
-        <h2>Let the Light In</h2>
-        <p>
-          Dirty windows do more than block your view — they make your entire property look neglected.
-          Our professional window cleaning removes hard water spots, mineral deposits, pollen, and grime
-          that regular cleaning can't touch.
-        </p>
-        <p>
-          We clean both interior and exterior windows, leaving them streak-free and sparkling. Whether
-          it's a few ground-floor windows or a full home with multiple stories, we have the equipment
-          and expertise to get the job done safely and efficiently.
-        </p>
+      <div class="service-row">
+        <div class="service-text">
+          <h2>Let the Light In</h2>
+          <p>
+            Dirty windows do more than block your view — they make your entire property look neglected.
+            Our professional window cleaning removes hard water spots, mineral deposits, pollen, and grime
+            that regular cleaning can't touch.
+          </p>
+          <p>
+            We clean both interior and exterior windows, leaving them streak-free and sparkling. Whether
+            it's a few ground-floor windows or a full home with multiple stories, we have the equipment
+            and expertise to get the job done safely and efficiently.
+          </p>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/window-cleaning/comingsoon.jpeg" after="/gallery/window-cleaning/comingsoon.jpeg" altBefore="Window before cleaning" altAfter="Window after cleaning" />
+        </div>
+      </div>
 
-        <h3>What's Included</h3>
-        <ul class="service-list">
-          <li>Exterior window cleaning</li>
-          <li>Interior window cleaning</li>
-          <li>Screen cleaning and removal</li>
-          <li>Window sill and track cleaning</li>
-          <li>Hard water stain removal</li>
-        </ul>
+      <div class="service-row">
+        <div class="service-text">
+          <h3>What's Included</h3>
+          <ul class="service-list">
+            <li>Exterior window cleaning</li>
+            <li>Interior window cleaning</li>
+            <li>Screen cleaning and removal</li>
+            <li>Window sill and track cleaning</li>
+            <li>Hard water stain removal</li>
+          </ul>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/window-cleaning/comingsoon.jpeg" after="/gallery/window-cleaning/comingsoon.jpeg" altBefore="Glass before cleaning" altAfter="Glass after cleaning" />
+        </div>
       </div>
     </div>
   </section>
@@ -93,7 +106,19 @@ import Layout from '../../layouts/Layout.astro';
     padding: 50px 0;
   }
 
-  .service-content h2 {
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 50px;
+  }
+
+  .service-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-text h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     font-weight: 700;
@@ -101,21 +126,19 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 16px;
   }
 
-  .service-content h3 {
+  .service-text h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: var(--dark-gray);
-    margin-top: 32px;
     margin-bottom: 12px;
   }
 
-  .service-content p {
+  .service-text p {
     color: var(--light-gray);
     line-height: 1.8;
     font-size: 16px;
     margin-bottom: 16px;
-    max-width: 800px;
   }
 
   .service-list {
@@ -231,12 +254,19 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 32px;
   }
 
+  @media (max-width: 968px) {
+    .service-row {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
   @media (max-width: 640px) {
     .service-hero {
       padding: 60px 0 30px;
     }
 
-    .service-content h2 {
+    .service-text h2 {
       font-size: 24px;
     }
 

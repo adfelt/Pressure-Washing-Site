@@ -1,0 +1,292 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+---
+
+<Layout title="Roof Cleaning | Felt Pressure Washing" description="Professional roof cleaning in Eugene, Springfield and surrounding areas. Remove moss, algae, and debris safely.">
+  <section class="service-hero">
+    <div class="container">
+      <div class="service-icon-lg">🏡</div>
+      <h1 class="section-title">Roof Cleaning</h1>
+      <p class="section-subtitle">Safely remove moss, algae, and debris to protect your roof</p>
+    </div>
+  </section>
+
+  <section class="service-details">
+    <div class="container">
+      <div class="service-row">
+        <div class="service-text">
+          <h2>Protect Your Biggest Investment</h2>
+          <p>
+            Your roof takes the worst of Oregon's weather. Moss, algae, and lichen don't just look bad —
+            they actively damage your shingles, lift edges, trap moisture, and shorten your roof's lifespan.
+            Regular roof cleaning removes this growth and prevents costly repairs down the road.
+          </p>
+          <p>
+            We use low-pressure soft washing techniques specifically designed for roofing materials. No
+            high-pressure blasting that can strip granules from shingles or crack tiles. Just a thorough,
+            safe clean that leaves your roof looking great and performing the way it should.
+          </p>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/roof/comingsoon.jpeg" after="/gallery/roof/comingsoon.jpeg" altBefore="Roof before cleaning" altAfter="Roof after cleaning" />
+        </div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-text">
+          <h3>What We Clean</h3>
+          <ul class="service-list">
+            <li>Asphalt shingle roofs</li>
+            <li>Metal roofing</li>
+            <li>Tile and slate roofs</li>
+            <li>Cedar shake roofs</li>
+            <li>Gutters and downspouts</li>
+            <li>Moss and debris removal</li>
+          </ul>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/roof/comingsoon.jpeg" after="/gallery/roof/comingsoon.jpeg" altBefore="Roof moss before removal" altAfter="Roof after moss removal" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Will pressure washing damage my roof?</summary>
+          <p>We never use high pressure on roofs. We use soft washing — a low-pressure method combined with specialized cleaning solutions that kill moss, algae, and lichen at the root without damaging your shingles or tiles.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How often should my roof be cleaned?</summary>
+          <p>In the Pacific Northwest, we recommend roof cleaning every 1-2 years depending on your roof's exposure. Heavily shaded roofs with overhanging trees may need annual cleaning. Pairing with our preventative care treatment can extend the time between cleanings.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you clean my roof without walking on it?</summary>
+          <p>In many cases, yes. Our soft wash system allows us to clean from the ground or from ladders without needing to walk on your roof. For certain roof types or heavy moss, some roof access may be needed, and we take every precaution to avoid damage.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does moss actually damage my roof?</summary>
+          <p>Yes. Moss holds moisture against your shingles, which accelerates wear and can lead to leaks. It also lifts shingle edges, allowing water to get underneath. Over time, unchecked moss growth can take years off your roof's lifespan.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you clean gutters too?</summary>
+          <p>Yes! We offer gutter cleaning as part of our roof cleaning service or as a standalone service. Clean gutters are essential for proper water drainage and preventing damage to your roof, fascia, and foundation.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Ready for a Cleaner Roof?</h2>
+        <p>Get a free estimate today — no obligation, no pressure.</p>
+        <a href="/#estimate" class="btn btn-primary">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: 60px 0 30px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    text-align: center;
+  }
+
+  .service-icon-lg {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .service-details {
+    padding: 50px 0;
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 50px;
+  }
+
+  .service-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+  }
+
+  .service-text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 12px;
+  }
+
+  .service-text p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .service-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-list li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--dark-gray);
+    font-weight: 500;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .service-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+  }
+
+  .faq-section {
+    padding: 50px 0;
+    background: var(--bg-light);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow-md);
+    border-color: var(--light-blue);
+  }
+
+  .faq-item summary {
+    padding: 18px 24px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item p {
+    padding: 0 24px 18px;
+    color: var(--light-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .service-cta {
+    padding: 50px 0;
+  }
+
+  .cta-block {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+    padding: 48px 40px;
+    border-radius: 16px;
+  }
+
+  .cta-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .cta-block p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 968px) {
+    .service-row {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .service-hero {
+      padding: 60px 0 30px;
+    }
+
+    .service-text h2 {
+      font-size: 24px;
+    }
+
+    .cta-block {
+      padding: 40px 24px;
+    }
+
+    .cta-block h2 {
+      font-size: 24px;
+    }
+
+    .faq-item summary {
+      font-size: 15px;
+      padding: 16px 20px;
+    }
+
+    .faq-item p {
+      padding: 0 20px 16px;
+      font-size: 14px;
+    }
+  }
+</style>

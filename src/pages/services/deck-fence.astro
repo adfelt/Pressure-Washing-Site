@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
 ---
 
 <Layout title="Deck & Fence Washing | Felt Pressure Washing" description="Professional deck and fence cleaning in Eugene, Springfield and surrounding areas. Restore and protect your outdoor wood surfaces.">
@@ -13,27 +14,39 @@ import Layout from '../../layouts/Layout.astro';
 
   <section class="service-details">
     <div class="container">
-      <div class="service-content">
-        <h2>Bring Your Wood Back to Life</h2>
-        <p>
-          Oregon's wet climate is tough on wood. Decks, fences, and pergolas quickly develop moss, algae,
-          mildew, and gray weathering that makes them look old and neglected. Left untreated, this buildup
-          can actually break down the wood fibers and shorten the life of your structures.
-        </p>
-        <p>
-          Our deck and fence cleaning uses the right pressure and cleaning solutions for the type of wood
-          you have. We carefully remove all organic growth and grime without damaging the wood grain,
-          leaving surfaces ready for staining, sealing, or just looking great on their own. Ask about our oxadizing brightening add on as well.
-        </p>
+      <div class="service-row">
+        <div class="service-text">
+          <h2>Bring Your Wood Back to Life</h2>
+          <p>
+            Oregon's wet climate is tough on wood. Decks, fences, and pergolas quickly develop moss, algae,
+            mildew, and gray weathering that makes them look old and neglected. Left untreated, this buildup
+            can actually break down the wood fibers and shorten the life of your structures.
+          </p>
+          <p>
+            Our deck and fence cleaning uses the right pressure and cleaning solutions for the type of wood
+            you have. We carefully remove all organic growth and grime without damaging the wood grain,
+            leaving surfaces ready for staining, sealing, or just looking great on their own. Ask about our oxadizing brightening add on as well.
+          </p>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/fences/beforefence-1.jpeg" after="/gallery/fences/afterfence-1.jpeg" altBefore="Deck before washing" altAfter="Deck after washing" />
+        </div>
+      </div>
 
-        <h3>What We Clean</h3>
-        <ul class="service-list">
-          <li>Wood and composite decks</li>
-          <li>Cedar, pine, and redwood fences</li>
-          <li>Pergolas and gazebos</li>
-          <li>Railings and balusters</li>
-          <li>Outdoor stairs and landings</li>
-        </ul>
+      <div class="service-row">
+        <div class="service-text">
+          <h3>What We Clean</h3>
+          <ul class="service-list">
+            <li>Wood and composite decks</li>
+            <li>Cedar, pine, and redwood fences</li>
+            <li>Pergolas and gazebos</li>
+            <li>Railings and balusters</li>
+            <li>Outdoor stairs and landings</li>
+          </ul>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/before-1.jpeg" after="/gallery/after-1.jpeg" altBefore="Fence before cleaning" altAfter="Fence after cleaning" />
+        </div>
       </div>
     </div>
   </section>
@@ -93,7 +106,19 @@ import Layout from '../../layouts/Layout.astro';
     padding: 50px 0;
   }
 
-  .service-content h2 {
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 50px;
+  }
+
+  .service-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-text h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     font-weight: 700;
@@ -101,21 +126,19 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 16px;
   }
 
-  .service-content h3 {
+  .service-text h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: var(--dark-gray);
-    margin-top: 32px;
     margin-bottom: 12px;
   }
 
-  .service-content p {
+  .service-text p {
     color: var(--light-gray);
     line-height: 1.8;
     font-size: 16px;
     margin-bottom: 16px;
-    max-width: 800px;
   }
 
   .service-list {
@@ -231,12 +254,19 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 32px;
   }
 
+  @media (max-width: 968px) {
+    .service-row {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
   @media (max-width: 640px) {
     .service-hero {
       padding: 60px 0 30px;
     }
 
-    .service-content h2 {
+    .service-text h2 {
       font-size: 24px;
     }
 

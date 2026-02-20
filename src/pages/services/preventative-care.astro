@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
 ---
 
 <Layout title="Preventative Care | Felt Pressure Washing" description="Preventative moss and algae treatment in Eugene, Springfield and surrounding areas. Stop growth before it starts.">
@@ -13,27 +14,99 @@ import Layout from '../../layouts/Layout.astro';
 
   <section class="service-details">
     <div class="container">
-      <div class="service-content">
-        <h2>Protection That Lasts</h2>
-        <p>
-          In the Pacific Northwest, moss and algae are a constant battle. Instead of waiting for buildup
-          to become a problem, our preventative care treatments stop growth before it starts. A simple
-          application keeps your surfaces cleaner for longer and extends the time between deep cleanings.
-        </p>
-        <p>
-          Our preventative treatments work on roofs, siding, decks, fences, concrete, and more. We offer
-          both one-time applications and recurring treatment plans so you can set it and forget it. It's
-          the easiest way to keep your property looking clean year-round.
-        </p>
+      <div class="service-row">
+        <div class="service-text">
+          <h2>Protection That Lasts</h2>
+          <p>
+            In the Pacific Northwest, moss and algae are a constant battle. Instead of waiting for buildup
+            to become a problem, our preventative care treatments stop growth before it starts. A simple
+            application keeps your surfaces cleaner for longer and extends the time between deep cleanings.
+          </p>
+          <p>
+            Our preventative treatments work on roofs, siding, decks, fences, concrete, and more. We offer
+            both one-time applications and recurring treatment plans so you can set it and forget it. It's
+            the easiest way to keep your property looking clean year-round.
+          </p>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/before-1.jpeg" after="/gallery/after-1.jpeg" altBefore="Surface before treatment" altAfter="Surface after treatment" />
+        </div>
+      </div>
 
-        <h3>How It Works</h3>
-        <ul class="service-list">
-          <li>Surface assessment and cleaning if needed</li>
-          <li>Application of moss and algae inhibitor</li>
-          <li>Treatments for roofs, siding, decks, and concrete</li>
-          <li>One-time or recurring treatment plans</li>
-          <li>Eco-friendly, surface-safe solutions</li>
-        </ul>
+      <div class="service-row">
+        <div class="service-text">
+          <h3>How It Works</h3>
+          <ul class="service-list">
+            <li>Surface assessment and cleaning if needed</li>
+            <li>Application of moss and algae inhibitor</li>
+            <li>Treatments for roofs, siding, decks, and concrete</li>
+            <li>One-time or recurring treatment plans</li>
+            <li>Eco-friendly, surface-safe solutions</li>
+          </ul>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/before-2.jpeg" after="/gallery/after-2.jpeg" altBefore="Before preventative care" altAfter="After preventative care" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans -->
+  <section class="pricing-section">
+    <div class="container">
+      <h2 class="section-title">Treatment Plans</h2>
+      <p class="section-subtitle">Choose the plan that fits your property's needs</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>One-Time</h3>
+            <p class="pricing-desc">Single treatment application</p>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li>Full surface assessment</li>
+              <li>Moss & algae inhibitor application</li>
+              <li>6-12 months of protection</li>
+              <li>All surface types</li>
+            </ul>
+            <a href="/#estimate" class="btn btn-secondary pricing-btn">Get a Quote</a>
+          </div>
+        </div>
+
+        <div class="pricing-card pricing-featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-header">
+            <h3>Semi-Annual</h3>
+            <p class="pricing-desc">Two treatments per year</p>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li>Everything in One-Time</li>
+              <li>Spring & fall applications</li>
+              <li>Year round Protection</li>
+              <li>Great for moderate exposure and high shade areas</li>
+              <li>Priority Scheduling</li>
+            </ul>
+            <a href="/#estimate" class="btn btn-primary pricing-btn">Get a Quote</a>
+          </div>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Annual</h3>
+            <p class="pricing-desc">One treatment per year</p>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li>Everything in One-Time</li>
+              <li>Yearly treatment late fall or early spring</li>
+              <li>Good for mild exposure and low shade areas</li>
+              <li>Priority scheduling</li>
+            </ul>
+            <a href="/#estimate" class="btn btn-secondary pricing-btn">Get a Quote</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -93,7 +166,19 @@ import Layout from '../../layouts/Layout.astro';
     padding: 50px 0;
   }
 
-  .service-content h2 {
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 50px;
+  }
+
+  .service-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-text h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     font-weight: 700;
@@ -101,21 +186,19 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 16px;
   }
 
-  .service-content h3 {
+  .service-text h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: var(--dark-gray);
-    margin-top: 32px;
     margin-bottom: 12px;
   }
 
-  .service-content p {
+  .service-text p {
     color: var(--light-gray);
     line-height: 1.8;
     font-size: 16px;
     margin-bottom: 16px;
-    max-width: 800px;
   }
 
   .service-list {
@@ -140,9 +223,111 @@ import Layout from '../../layouts/Layout.astro';
     font-weight: 700;
   }
 
-  .faq-section {
+  /* Pricing Section */
+  .pricing-section {
     padding: 50px 0;
     background: var(--bg-light);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: white;
+    border-radius: 16px;
+    border: 2px solid #E5E7EB;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing-featured {
+    border-color: var(--primary-blue);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing-featured:hover {
+    transform: scale(1.05) translateY(-4px);
+  }
+
+  .pricing-badge {
+    background: var(--primary-blue);
+    color: white;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .pricing-header {
+    padding: 32px 28px 20px;
+    text-align: center;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .pricing-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 6px;
+  }
+
+  .pricing-desc {
+    color: var(--light-gray);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .pricing-body {
+    padding: 24px 28px 32px;
+  }
+
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+  }
+
+  .pricing-features li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    color: var(--dark-gray);
+    font-size: 14px;
+  }
+
+  .pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 700;
+  }
+
+  .pricing-btn {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 50px 0;
   }
 
   .faq-list {
@@ -206,6 +391,7 @@ import Layout from '../../layouts/Layout.astro';
     margin: 0;
   }
 
+  /* CTA */
   .service-cta {
     padding: 50px 0;
   }
@@ -231,12 +417,32 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 32px;
   }
 
+  @media (max-width: 968px) {
+    .service-row {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+
+    .pricing-featured {
+      transform: none;
+    }
+
+    .pricing-featured:hover {
+      transform: translateY(-4px);
+    }
+  }
+
   @media (max-width: 640px) {
     .service-hero {
       padding: 60px 0 30px;
     }
 
-    .service-content h2 {
+    .service-text h2 {
       font-size: 24px;
     }
 

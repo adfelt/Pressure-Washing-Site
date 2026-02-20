@@ -1,0 +1,211 @@
+---
+interface Props {
+  before: string;
+  after: string;
+  altBefore?: string;
+  altAfter?: string;
+}
+
+const { before, after, altBefore = 'Before cleaning', altAfter = 'After cleaning' } = Astro.props;
+---
+
+<div class="ba-slider" data-slider>
+  <div class="ba-image ba-after">
+    <img src={after} alt={altAfter} loading="lazy" />
+    <span class="ba-label ba-label-after">After</span>
+  </div>
+  <div class="ba-image ba-before" data-before>
+    <img src={before} alt={altBefore} loading="lazy" />
+    <span class="ba-label ba-label-before">Before</span>
+  </div>
+  <div class="ba-handle" data-handle>
+    <div class="ba-handle-line"></div>
+    <div class="ba-handle-circle">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </div>
+    <div class="ba-handle-line"></div>
+  </div>
+  <input type="range" min="0" max="100" value="75" class="ba-range" data-range aria-label="Before and after comparison slider" />
+</div>
+
+<style>
+  .ba-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: ew-resize;
+    box-shadow: var(--shadow-md);
+    user-select: none;
+  }
+
+  .ba-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ba-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ba-before {
+    width: 75%;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  .ba-before img {
+    width: 133.33%;
+    max-width: none;
+  }
+
+  .ba-after {
+    z-index: 1;
+  }
+
+  .ba-label {
+    position: absolute;
+    bottom: 12px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .ba-label-before {
+    left: 12px;
+    background: rgba(220, 38, 38, 0.85);
+  }
+
+  .ba-label-after {
+    right: 12px;
+    background: rgba(22, 163, 74, 0.85);
+  }
+
+  .ba-handle {
+    position: absolute;
+    top: 0;
+    left: 75%;
+    width: 4px;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .ba-handle-line {
+    flex: 1;
+    width: 3px;
+    background: white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .ba-handle-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ba-range {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    z-index: 5;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  @media (max-width: 640px) {
+    .ba-handle-circle {
+      width: 36px;
+      height: 36px;
+    }
+
+    .ba-handle-circle svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-slider]').forEach((slider) => {
+    const range = slider.querySelector('[data-range]') as HTMLInputElement;
+    const before = slider.querySelector('[data-before]') as HTMLElement;
+    const handle = slider.querySelector('[data-handle]') as HTMLElement;
+
+    if (!range || !before || !handle) return;
+
+    function update(value: number) {
+      before.style.width = value + '%';
+      handle.style.left = value + '%';
+
+      // Adjust before image width so it shows correctly
+      const img = before.querySelector('img') as HTMLElement;
+      if (img) {
+        img.style.width = (10000 / value) + '%';
+      }
+    }
+
+    range.addEventListener('input', () => {
+      update(Number(range.value));
+    });
+
+    // Touch support for smoother mobile experience
+    let isDragging = false;
+
+    slider.addEventListener('pointerdown', (e: Event) => {
+      isDragging = true;
+      (slider as HTMLElement).setPointerCapture((e as PointerEvent).pointerId);
+      updateFromPointer(e as PointerEvent);
+    });
+
+    slider.addEventListener('pointermove', (e: Event) => {
+      if (!isDragging) return;
+      updateFromPointer(e as PointerEvent);
+    });
+
+    slider.addEventListener('pointerup', () => {
+      isDragging = false;
+    });
+
+    function updateFromPointer(e: PointerEvent) {
+      const rect = (slider as HTMLElement).getBoundingClientRect();
+      let x = ((e.clientX - rect.left) / rect.width) * 100;
+      x = Math.max(0, Math.min(100, x));
+      range.value = String(x);
+      update(x);
+    }
+  });
+</script>

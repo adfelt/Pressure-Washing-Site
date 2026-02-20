@@ -58,7 +58,21 @@ const { title, description = 'Professional pressure washing services for residen
       <button class="nav-close" id="navCloseBtn" aria-label="Close navigation menu">&times;</button>
     </div>
     <ul class="nav-drawer-links">
-      <li><a href="/#services">Services</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false">
+          Services
+          <svg class="nav-dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <ul class="nav-dropdown">
+          <li><a href="/services/house-washing">House Washing</a></li>
+          <li><a href="/services/driveway-concrete">Driveway & Concrete</a></li>
+          <li><a href="/services/commercial-cleaning">Commercial & Storefront</a></li>
+          <li><a href="/services/window-cleaning">Window Cleaning</a></li>
+          <li><a href="/services/roof-cleaning">Roof Cleaning</a></li>
+          <li><a href="/services/deck-fence">Deck & Fence Washing</a></li>
+          <li><a href="/services/preventative-care">Preventative Care</a></li>
+        </ul>
+      </li>
       <li><a href="/#gallery">Gallery</a></li>
       <li><a href="/#estimate">Get Estimate</a></li>
       <li><a href="/about">About</a></li>
@@ -315,6 +329,65 @@ const { title, description = 'Professional pressure washing services for residen
 
     .nav-drawer-links li a:hover {
       background: var(--bg-light);
+      color: var(--primary-blue);
+    }
+
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 14px 24px;
+      background: none;
+      border: none;
+      color: var(--dark-gray);
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-dropdown-toggle:hover {
+      background: var(--bg-light);
+      color: var(--primary-blue);
+    }
+
+    .nav-dropdown-arrow {
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-has-dropdown.open .nav-dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--bg-light);
+    }
+
+    .nav-has-dropdown.open .nav-dropdown {
+      max-height: 400px;
+    }
+
+    .nav-dropdown li a {
+      display: block;
+      padding: 10px 24px 10px 40px;
+      color: var(--light-gray);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-dropdown li a:hover {
+      background: #E5E7EB;
       color: var(--primary-blue);
     }
 
@@ -594,6 +667,16 @@ const { title, description = 'Professional pressure washing services for residen
     hamburgerBtn?.addEventListener('click', openDrawer);
     navCloseBtn?.addEventListener('click', closeDrawer);
     navOverlay?.addEventListener('click', closeDrawer);
+
+    // Services dropdown toggle
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    const dropdownParent = document.querySelector('.nav-has-dropdown');
+
+    dropdownToggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdownParent?.classList.toggle('open');
+      dropdownToggle.setAttribute('aria-expanded', String(isOpen));
+    });
 
     // Close drawer when a nav link is clicked
     document.querySelectorAll('.nav-drawer-links a').forEach(link => {

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
 ---
 
 <Layout title="Commercial & Storefront Cleaning | Felt Pressure Washing" description="Professional commercial exterior cleaning in Eugene, Springfield and surrounding areas. Keep your business looking its best.">
@@ -13,28 +14,40 @@ import Layout from '../../layouts/Layout.astro';
 
   <section class="service-details">
     <div class="container">
-      <div class="service-content">
-        <h2>First Impressions Matter</h2>
-        <p>
-          Your building's exterior is the first thing customers see. Dirty walls, stained sidewalks, and
-          grimy storefronts can turn people away before they even walk through the door. Regular exterior
-          cleaning keeps your property looking professional and inviting.
-        </p>
-        <p>
-          We work with businesses of all sizes — from small storefronts to larger commercial buildings.
-          We can schedule cleanings around your business hours to minimize disruption, and we offer
-          recurring maintenance plans to keep your property looking great year-round.
-        </p>
+      <div class="service-row">
+        <div class="service-text">
+          <h2>First Impressions Matter</h2>
+          <p>
+            Your building's exterior is the first thing customers see. Dirty walls, stained sidewalks, and
+            grimy storefronts can turn people away before they even walk through the door. Regular exterior
+            cleaning keeps your property looking professional and inviting.
+          </p>
+          <p>
+            We work with businesses of all sizes — from small storefronts to larger commercial buildings.
+            We can schedule cleanings around your business hours to minimize disruption, and we offer
+            recurring maintenance plans to keep your property looking great year-round.
+          </p>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/commercial/comingsoon.jpeg" after="/gallery/commercial/comingsoon.jpeg" altBefore="Storefront before cleaning" altAfter="Storefront after cleaning" />
+        </div>
+      </div>
 
-        <h3>Commercial Services</h3>
-        <ul class="service-list">
-          <li>Building exterior and facades</li>
-          <li>Storefronts and entryways</li>
-          <li>Sidewalks and parking areas</li>
-          <li>Dumpster pads and loading areas</li>
-          <li>Drive-throughs and service areas</li>
-          <li>Recurring maintenance programs</li>
-        </ul>
+      <div class="service-row">
+        <div class="service-text">
+          <h3>Commercial Services</h3>
+          <ul class="service-list">
+            <li>Building exterior and facades</li>
+            <li>Storefronts and entryways</li>
+            <li>Sidewalks and parking areas</li>
+            <li>Dumpster pads and loading areas</li>
+            <li>Drive-throughs and service areas</li>
+            <li>Recurring maintenance programs</li>
+          </ul>
+        </div>
+        <div class="service-slider">
+          <BeforeAfterSlider before="/gallery/commercial/comingsoon.jpeg" after="/gallery/commercial/comingsoon.jpeg" altBefore="Building before cleaning" altAfter="Building after cleaning" />
+        </div>
       </div>
     </div>
   </section>
@@ -94,7 +107,19 @@ import Layout from '../../layouts/Layout.astro';
     padding: 50px 0;
   }
 
-  .service-content h2 {
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 50px;
+  }
+
+  .service-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-text h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     font-weight: 700;
@@ -102,21 +127,19 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 16px;
   }
 
-  .service-content h3 {
+  .service-text h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: var(--dark-gray);
-    margin-top: 32px;
     margin-bottom: 12px;
   }
 
-  .service-content p {
+  .service-text p {
     color: var(--light-gray);
     line-height: 1.8;
     font-size: 16px;
     margin-bottom: 16px;
-    max-width: 800px;
   }
 
   .service-list {
@@ -232,12 +255,19 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 32px;
   }
 
+  @media (max-width: 968px) {
+    .service-row {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
   @media (max-width: 640px) {
     .service-hero {
       padding: 60px 0 30px;
     }
 
-    .service-content h2 {
+    .service-text h2 {
       font-size: 24px;
     }
 

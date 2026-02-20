@@ -70,6 +70,11 @@ import Layout from '../layouts/Layout.astro';
           <h3>Window Cleaning</h3>
           <p>Crystal clear windows that let the light shine through.</p>
         </a>
+        <a href="/services/roof-cleaning" class="service-card">
+          <div class="service-icon">🏡</div>
+          <h3>Roof Cleaning</h3>
+          <p>Remove moss, algae, and debris to protect and extend your roof's lifespan.</p>
+        </a>
         <a href="/services/deck-fence" class="service-card">
           <div class="service-icon">🪵</div>
           <h3>Deck & Fence Washing</h3>
@@ -379,8 +384,37 @@ import Layout from '../layouts/Layout.astro';
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 641px) and (max-width: 968px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 969px) {
+    .services-grid {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 32px;
+    }
+
+    .services-grid .service-card:nth-child(-n+4) {
+      grid-column: span 3;
+    }
+
+    .services-grid .service-card:nth-child(5) {
+      grid-column: 2 / span 3;
+    }
+
+    .services-grid .service-card:nth-child(6) {
+      grid-column: 5 / span 3;
+    }
+
+    .services-grid .service-card:nth-child(7) {
+      grid-column: 8 / span 3;
+    }
   }
 
   .service-card {
