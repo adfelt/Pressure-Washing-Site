@@ -68,9 +68,8 @@ PRIVATE.md
 # EDITOR & IDE
 # ===================================
 # VSCode
+.vscode/
 .vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
 *.code-workspace
 
 # JetBrains
