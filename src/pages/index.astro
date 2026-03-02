@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 ---
 
 <Layout title="Felt Pressure Washing | Professional Residential & Commercial Cleaning">
@@ -120,6 +121,14 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
       </div>
+
+      <!-- Mobile-only sliders -->
+      <div class="gallery-sliders">
+        <BeforeAfterSlider before="/gallery/before-1.jpeg" after="/gallery/after-1.jpeg" altBefore="Before pressure washing" altAfter="After pressure washing" />
+        <BeforeAfterSlider before="/gallery/before-2.jpeg" after="/gallery/after-2.jpeg" altBefore="Before pressure washing" altAfter="After pressure washing" />
+        <BeforeAfterSlider before="/gallery/before-3.jpeg" after="/gallery/after-3.jpeg" altBefore="Before pressure washing" altAfter="After pressure washing" />
+      </div>
+
     </div>
   </section>
 
@@ -463,6 +472,12 @@ import Layout from '../layouts/Layout.astro';
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .gallery-sliders {
+    display: none;
+    flex-direction: column;
     gap: 24px;
   }
 
@@ -830,7 +845,11 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .gallery-grid {
-      grid-template-columns: 1fr;
+      display: none;
+    }
+
+    .gallery-sliders {
+      display: flex;
     }
   }
 </style>
