@@ -2,9 +2,40 @@
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = 'Professional pressure washing services for residential and commercial properties. Get your free quote today!' } = Astro.props;
+const {
+  title,
+  description = 'Professional pressure washing services for residential and commercial properties in Eugene, Springfield, and surrounding Oregon areas. Get your free quote today!',
+  ogImage = '/logo.png',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Felt Pressure Washing',
+  telephone: '+15415201761',
+  email: 'feltpressurewashingco@gmail.com',
+  url: 'https://feltpressurewashing.com',
+  logo: 'https://feltpressurewashing.com/logo.png',
+  image: 'https://feltpressurewashing.com/logo.png',
+  priceRange: '$$',
+  areaServed: [
+    { '@type': 'City', name: 'Eugene', containedInPlace: { '@type': 'State', name: 'Oregon' } },
+    { '@type': 'City', name: 'Springfield', containedInPlace: { '@type': 'State', name: 'Oregon' } },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Eugene',
+    addressRegion: 'OR',
+    addressCountry: 'US',
+  },
+  sameAs: [],
+};
 ---
 
 <!DOCTYPE html>
@@ -14,6 +45,30 @@ const { title, description = 'Professional pressure washing services for residen
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalURL}>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImageURL}>
+  <meta property="og:site_name" content="Felt Pressure Washing">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImageURL}>
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)} />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
