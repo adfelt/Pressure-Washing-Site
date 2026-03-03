@@ -191,9 +191,7 @@ const { title, description = 'Professional pressure washing services for residen
     .logo img {
       height: 100px;
       width: auto;
-      transform: scale(1.4);
-      transform-origin: center;
-      transition: all 0.3s ease;
+      transition: height 0.3s ease;
     }
 
     .nav-buttons {
@@ -411,8 +409,8 @@ const { title, description = 'Professional pressure washing services for residen
       padding: 0;
     }
 
-    .header.scrolled .logo {
-      display: none;
+    .header.scrolled .logo img {
+      height: 40px;
     }
 
     .header.scrolled .header-content {
@@ -619,16 +617,15 @@ const { title, description = 'Professional pressure washing services for residen
       }
 
       .logo img {
-        height: 55px;
-        transform: scale(1.3);
+        height: 65px;
+      }
+
+      .header.scrolled .logo img {
+        height: 32px;
       }
 
       .nav-buttons {
         display: none;
-      }
-
-      .header.scrolled .header-left {
-        justify-content: flex-start;
       }
 
       .header.scrolled .header-content {
@@ -689,19 +686,14 @@ const { title, description = 'Professional pressure washing services for residen
     });
 
     // Collapsing header on scroll
-    let lastScroll = 0;
     const header = document.querySelector('.header') as HTMLElement;
 
     window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-
-      if (currentScroll > 100) {
+      if (window.pageYOffset > 100) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-
-      lastScroll = currentScroll;
     });
 
     // Smooth scroll for same-page anchor links
