@@ -53,43 +53,56 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
     <div class="container">
       <h2 class="section-title">Our Services</h2>
       <p class="section-subtitle">Professional cleaning solutions for every surface</p>
-      <div class="services-grid">
-        <a href="/services/house-washing" class="service-card">
-          <div class="service-icon">🏠</div>
-          <h3>House Washing</h3>
-          <p>Gentle yet effective cleaning for siding, brick, and stucco. Restore your home's curb appeal.</p>
-        </a>
-        <a href="/services/driveway-concrete" class="service-card">
-          <div class="service-icon">🚗</div>
-          <h3>Driveway & Concrete</h3>
-          <p>Remove oil stains, dirt, and grime from driveways, sidewalks, and patios.</p>
-        </a>
-        <a href="/services/commercial-cleaning" class="service-card">
-          <div class="service-icon">🏢</div>
-          <h3>Commercial & Storefront Cleaning</h3>
-          <p>Keep your business looking professional with regular exterior maintenance.</p>
-        </a>
-        <a href="/services/window-cleaning" class="service-card">
-          <div class="service-icon">🪟</div>
-          <h3>Window Cleaning</h3>
-          <p>Crystal clear windows that let the light shine through.</p>
-        </a>
-        <a href="/services/roof-cleaning" class="service-card">
-          <div class="service-icon">🏡</div>
-          <h3>Roof Cleaning</h3>
-          <p>Remove moss, algae, and debris to protect and extend your roof's lifespan.</p>
-        </a>
-        <a href="/services/deck-fence" class="service-card">
-          <div class="service-icon">🪵</div>
-          <h3>Deck & Fence Washing</h3>
-          <p>Restore and protect your outdoor wood surfaces from weathering.</p>
-        </a>
-        <a href="/services/preventative-care" class="service-card">
-          <div class="service-icon">🛡️</div>
-          <h3>Preventative Care</h3>
-          <p>Prevent moss and algae growth and extend the clean with a simple one time or recurring preventative treatment.</p>
-        </a>
+      <div class="services-carousel-outer">
+        <button class="carousel-btn carousel-btn--prev" id="servicesPrev" aria-label="Previous services">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="services-carousel" id="servicesCarousel">
+          <a href="/services/house-washing" class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3>House Washing</h3>
+            <p>Gentle yet effective cleaning for siding, brick, and stucco. Restore your home's curb appeal.</p>
+          </a>
+          <a href="/services/driveway-concrete" class="service-card">
+            <div class="service-icon">🚗</div>
+            <h3>Driveway & Concrete</h3>
+            <p>Remove oil stains, dirt, and grime from driveways, sidewalks, and patios.</p>
+          </a>
+          <a href="/services/commercial-cleaning" class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Commercial & Storefront Cleaning</h3>
+            <p>Keep your business looking professional with regular exterior maintenance.</p>
+          </a>
+          <a href="/services/window-cleaning" class="service-card">
+            <div class="service-icon">🪟</div>
+            <h3>Window Cleaning</h3>
+            <p>Crystal clear windows that let the light shine through.</p>
+          </a>
+          <a href="/services/roof-cleaning" class="service-card">
+            <div class="service-icon">🏡</div>
+            <h3>Roof Cleaning</h3>
+            <p>Remove moss, algae, and debris to protect and extend your roof's lifespan.</p>
+          </a>
+          <a href="/services/deck-fence" class="service-card">
+            <div class="service-icon">🪵</div>
+            <h3>Deck & Fence Washing</h3>
+            <p>Restore and protect your outdoor wood surfaces from weathering.</p>
+          </a>
+          <a href="/services/preventative-care" class="service-card">
+            <div class="service-icon">🛡️</div>
+            <h3>Preventative Care</h3>
+            <p>Prevent moss and algae growth and extend the clean with a simple one time or recurring treatment.</p>
+          </a>
+        </div>
+        <button class="carousel-btn carousel-btn--next" id="servicesNext" aria-label="Next services">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
+      <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -395,42 +408,33 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
     background: var(--white);
   }
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+  /* Services Carousel */
+  .services-carousel-outer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .services-carousel {
+    flex: 1;
+    min-width: 0;
+    display: flex;
     gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    padding: 12px 2px;
   }
 
-  @media (min-width: 641px) and (max-width: 968px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 969px) {
-    .services-grid {
-      grid-template-columns: repeat(12, 1fr);
-      gap: 32px;
-    }
-
-    .services-grid .service-card:nth-child(-n+4) {
-      grid-column: span 3;
-    }
-
-    .services-grid .service-card:nth-child(5) {
-      grid-column: 2 / span 3;
-    }
-
-    .services-grid .service-card:nth-child(6) {
-      grid-column: 5 / span 3;
-    }
-
-    .services-grid .service-card:nth-child(7) {
-      grid-column: 8 / span 3;
-    }
+  .services-carousel::-webkit-scrollbar {
+    display: none;
   }
 
   .service-card {
+    flex: 0 0 calc(25% - 18px);
+    scroll-snap-align: start;
     background: var(--white);
     padding: 32px;
     border-radius: 12px;
@@ -439,7 +443,6 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
     text-align: center;
     text-decoration: none;
     color: inherit;
-    display: block;
   }
 
   .service-card:hover {
@@ -464,6 +467,66 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
   .service-card p {
     color: var(--light-gray);
     line-height: 1.6;
+  }
+
+  .carousel-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-blue);
+    background: var(--white);
+    color: var(--primary-blue);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .carousel-btn:hover:not(:disabled) {
+    background: var(--primary-blue);
+    color: var(--white);
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    border: none;
+    background: #D1D5DB;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background: var(--primary-blue);
+    width: 24px;
+  }
+
+  @media (max-width: 968px) {
+    .service-card {
+      flex: 0 0 calc(50% - 12px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .service-card {
+      flex: 0 0 85%;
+    }
+
+    .carousel-btn {
+      display: none;
+    }
   }
 
   /* Gallery Section */
@@ -1072,4 +1135,102 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
     // Auto-remove after 10 seconds
     setTimeout(() => message.remove(), 10000);
   }
+
+  // ===========================================
+  // SERVICES CAROUSEL
+  // ===========================================
+  const carousel = document.getElementById('servicesCarousel') as HTMLElement;
+  const prevBtn = document.getElementById('servicesPrev') as HTMLButtonElement;
+  const nextBtn = document.getElementById('servicesNext') as HTMLButtonElement;
+  const dotsContainer = document.getElementById('carouselDots') as HTMLElement;
+
+  // Capture real cards BEFORE cloning
+  const realCards = Array.from(carousel.querySelectorAll<HTMLElement>('.service-card'));
+  const n = realCards.length;
+
+  // Append clones at the end (for seamless forward wrap: card 7 → card 1)
+  realCards.forEach(card => {
+    const clone = card.cloneNode(true) as HTMLElement;
+    clone.setAttribute('aria-hidden', 'true');
+    carousel.appendChild(clone);
+  });
+
+  // Prepend clones at the start (for seamless backward wrap: card 1 → card 7)
+  [...realCards].reverse().forEach(card => {
+    const clone = card.cloneNode(true) as HTMLElement;
+    clone.setAttribute('aria-hidden', 'true');
+    carousel.prepend(clone);
+  });
+
+  // DOM is now: [n prepend-clones | n real-cards | n append-clones]
+  const getCardWidth = () => realCards[0].offsetWidth + 24;
+  let currentIndex = 0;
+
+  // On load, snap instantly to the first real card (dom position n)
+  requestAnimationFrame(() => {
+    carousel.style.scrollBehavior = 'auto';
+    carousel.scrollLeft = n * getCardWidth();
+    requestAnimationFrame(() => { carousel.style.scrollBehavior = ''; });
+  });
+
+  const updateDots = () => {
+    dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  };
+
+  // Build dot indicators
+  realCards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to service ${i + 1}`);
+    dot.addEventListener('click', () => scrollToCard(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  // After a wrap animation, silently reset scroll to the equivalent real card
+  let resetTimer: ReturnType<typeof setTimeout>;
+  const silentReset = (logicalIdx: number) => {
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      carousel.style.scrollBehavior = 'auto';
+      carousel.scrollLeft = (n + logicalIdx) * getCardWidth();
+      requestAnimationFrame(() => { carousel.style.scrollBehavior = ''; });
+    }, 380);
+  };
+
+  const scrollToCard = (logicalIndex: number) => {
+    const prevIndex = currentIndex;
+    currentIndex = ((logicalIndex % n) + n) % n;
+    updateDots();
+
+    const forwardWrap = prevIndex === n - 1 && currentIndex === 0;
+    const backwardWrap = prevIndex === 0 && currentIndex === n - 1;
+
+    // Default: scroll to real card section (dom index n + logical)
+    let domIndex = n + currentIndex;
+
+    if (forwardWrap) {
+      domIndex = 2 * n; // first appended clone (visually = card 1, scrolls right)
+      silentReset(0);
+    } else if (backwardWrap) {
+      domIndex = n - 1; // last prepended clone (visually = card 7, scrolls left)
+      silentReset(n - 1);
+    }
+
+    carousel.scrollTo({ left: domIndex * getCardWidth(), behavior: 'smooth' });
+  };
+
+  prevBtn.addEventListener('click', () => scrollToCard(currentIndex - 1));
+  nextBtn.addEventListener('click', () => scrollToCard(currentIndex + 1));
+
+  // Sync dot state on manual swipe
+  carousel.addEventListener('scroll', () => {
+    const domIdx = Math.round(carousel.scrollLeft / getCardWidth());
+    const logicalIdx = ((domIdx - n) % n + n) % n;
+    if (logicalIdx !== currentIndex) {
+      currentIndex = logicalIdx;
+      updateDots();
+    }
+  }, { passive: true });
 </script>
