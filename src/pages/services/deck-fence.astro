@@ -1,9 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Will pressure washing damage my deck?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Not when done correctly. We use lower pressure settings and fan tips specifically designed for wood surfaces. High pressure can splinter and etch wood, which is why we take a controlled approach. Your deck is in safe hands.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I clean my deck before staining or sealing?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. Cleaning before staining is essential — stain won\'t adhere properly to dirty or mildewed wood. Our cleaning process opens up the wood pores so stain can penetrate evenly and last longer.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you clean composite decking?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Composite decking still gets dirty and develops algae. We adjust our cleaning method for composite materials, using the right pressure and solutions to clean without damaging the surface.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How often should I have my deck cleaned?',
+      acceptedAnswer: { '@type': 'Answer', text: 'In Oregon\'s climate, we recommend cleaning your deck annually. This prevents moss and algae from taking hold and keeps the wood in good condition. If your deck is in heavy shade, twice a year may be beneficial.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you offer staining or sealing after cleaning?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Our focus is on the cleaning and preparation. We can recommend trusted local professionals for staining and sealing, or discuss options when we\'re on-site.' },
+    },
+  ],
+};
 ---
 
-<Layout title="Deck & Fence Washing Eugene, OR | Felt Pressure Washing" description="Professional deck and fence cleaning in Eugene, Springfield & surrounding Oregon areas. Restore and protect your outdoor wood surfaces. Free estimates.">
+<Layout title="Deck & Fence Washing Eugene, OR | Felt Pressure Washing" description="Professional deck and fence cleaning in Eugene, Springfield & surrounding Oregon areas. Restore and protect your outdoor wood surfaces. Free estimates." faqSchema={faqSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🪵</div>

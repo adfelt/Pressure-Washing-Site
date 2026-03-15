@@ -1,9 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How does preventative treatment work?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We apply a specially formulated solution that inhibits the growth of moss, algae, and mildew. It creates a protective barrier on your surfaces that prevents spores from taking root and growing.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does the treatment last?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A single treatment typically lasts 6-12 months depending on the surface, sun exposure, and weather conditions. Shaded areas may need more frequent treatment. We can set up a recurring schedule to keep you covered.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is the treatment safe for my roof?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Our products are designed specifically for use on roofing materials including asphalt shingles, metal, and tile. The treatment is gentle on surfaces while being tough on organic growth.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do surfaces need to be cleaned first?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For best results, we recommend starting with a clean surface. If there\'s existing moss or algae buildup, we\'ll clean it first and then apply the preventative treatment. If your surfaces are already clean, we can go straight to treatment.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is the treatment safe for plants, pets, and kids?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We use eco-friendly, biodegradable products. Once dry, the treated surfaces are safe for people and pets. We also take precautions to protect surrounding landscaping during application.' },
+    },
+  ],
+};
 ---
 
-<Layout title="Preventative Moss & Algae Treatment Eugene, OR | Felt Pressure Washing" description="Preventative moss and algae treatment in Eugene, Springfield & surrounding Oregon areas. Stop growth before it starts. Free estimates.">
+<Layout title="Preventative Moss & Algae Treatment Eugene, OR | Felt Pressure Washing" description="Preventative moss and algae treatment in Eugene, Springfield & surrounding Oregon areas. Stop growth before it starts. Free estimates." faqSchema={faqSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🛡️</div>

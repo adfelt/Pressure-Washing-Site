@@ -1,9 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Will pressure washing damage my siding?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No — we use soft washing techniques with low pressure and specialized cleaning solutions. This is safe for all siding types including vinyl, wood, and stucco. High-pressure washing is only used on hard surfaces like concrete.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How often should I have my house washed?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We recommend having your home\'s exterior washed once a year to prevent buildup of algae, mold, and grime. Homes surrounded by trees or in shaded areas may benefit from washing every 6-8 months.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need to be home during the wash?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Not necessarily. As long as we have access to water and the areas being cleaned, you don\'t need to be present. We\'ll coordinate with you ahead of time.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does a house wash take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most homes take 1-3 hours depending on size and how much buildup is present. We\'ll give you an estimated timeframe when we provide your quote.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are your cleaning solutions safe for plants and pets?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. We use eco-friendly, biodegradable cleaning solutions. We also take precautions to rinse and protect your landscaping during the process.' },
+    },
+  ],
+};
 ---
 
-<Layout title="House Washing Eugene, OR | Felt Pressure Washing" description="Professional house washing in Eugene, Springfield & surrounding Oregon areas. Gentle soft washing for siding, brick, and stucco. Free estimates.">
+<Layout title="House Washing Eugene, OR | Felt Pressure Washing" description="Professional house washing in Eugene, Springfield & surrounding Oregon areas. Gentle soft washing for siding, brick, and stucco. Free estimates." faqSchema={faqSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🏠</div>

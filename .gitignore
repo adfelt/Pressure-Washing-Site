@@ -52,7 +52,7 @@ index(1).astro
 **/*-old.*
 **/*.backup
 **/*.bak
-
+context.md
 # Customer data (if stored locally)
 customer-data/
 leads/

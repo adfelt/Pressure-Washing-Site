@@ -3,12 +3,14 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  faqSchema?: object;
 }
 
 const {
   title,
   description = 'Professional pressure washing services for residential and commercial properties in Eugene, Springfield, and surrounding Oregon areas. Get your free quote today!',
   ogImage = '/logo.png',
+  faqSchema,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -68,6 +70,9 @@ const localBusinessSchema = {
 
   <!-- LocalBusiness Schema -->
   <script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)} />
+
+  <!-- FAQ Schema (per-page) -->
+  {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

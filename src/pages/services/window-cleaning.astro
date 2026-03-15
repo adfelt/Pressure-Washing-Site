@@ -1,9 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do you clean both inside and outside?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes! We offer both interior and exterior window cleaning. You can choose one or both depending on your needs. We recommend doing both for the best results.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you remove hard water stains?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Hard water stains and mineral deposits are one of the most common issues we see. We use specialized solutions to dissolve and remove these spots, restoring clarity to your glass.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How often should I have my windows cleaned?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For most homes, we recommend professional window cleaning 2-3 times per year. Businesses with storefront windows may benefit from monthly or quarterly service.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will window cleaning scratch my glass?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. We use professional-grade squeegees, scrubbers, and cleaning solutions designed specifically for glass. Our techniques are safe for all window types including tinted and coated glass.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you reach second-story windows?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. We have the equipment to safely clean windows on multi-story homes. We use extension poles and other professional tools to reach upper-story windows without ladders when possible.' },
+    },
+  ],
+};
 ---
 
-<Layout title="Window Cleaning Eugene, OR | Felt Pressure Washing" description="Professional window cleaning in Eugene, Springfield & surrounding Oregon areas. Crystal clear windows for homes and businesses. Free estimates.">
+<Layout title="Window Cleaning Eugene, OR | Felt Pressure Washing" description="Professional window cleaning in Eugene, Springfield & surrounding Oregon areas. Crystal clear windows for homes and businesses. Free estimates." faqSchema={faqSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🪟</div>

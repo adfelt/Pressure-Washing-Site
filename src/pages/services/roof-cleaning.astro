@@ -1,9 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Will pressure washing damage my roof?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We never use high pressure on roofs. We use soft washing — a low-pressure method combined with specialized cleaning solutions that kill moss, algae, and lichen at the root without damaging your shingles or tiles.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How often should my roof be cleaned?',
+      acceptedAnswer: { '@type': 'Answer', text: 'In the Pacific Northwest, we recommend roof cleaning every 1-2 years depending on your roof\'s exposure. Heavily shaded roofs with overhanging trees may need annual cleaning. Pairing with our preventative care treatment can extend the time between cleanings.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you clean my roof without walking on it?',
+      acceptedAnswer: { '@type': 'Answer', text: 'In many cases, yes. Our soft wash system allows us to clean from the ground or from ladders without needing to walk on your roof. For certain roof types or heavy moss, some roof access may be needed, and we take every precaution to avoid damage.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does moss actually damage my roof?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Moss holds moisture against your shingles, which accelerates wear and can lead to leaks. It also lifts shingle edges, allowing water to get underneath. Over time, unchecked moss growth can take years off your roof\'s lifespan.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you clean gutters too?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes! We offer gutter cleaning as part of our roof cleaning service or as a standalone service. Clean gutters are essential for proper water drainage and preventing damage to your roof, fascia, and foundation.' },
+    },
+  ],
+};
 ---
 
-<Layout title="Roof Cleaning Eugene, OR | Felt Pressure Washing" description="Professional roof cleaning in Eugene, Springfield & surrounding Oregon areas. Safe moss, algae, and debris removal. Free estimates.">
+<Layout title="Roof Cleaning Eugene, OR | Felt Pressure Washing" description="Professional roof cleaning in Eugene, Springfield & surrounding Oregon areas. Safe moss, algae, and debris removal. Free estimates." faqSchema={faqSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🏡</div>

@@ -1,9 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Can you work around our business hours?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. We regularly schedule cleanings during early mornings, evenings, or weekends to avoid disrupting your customers and employees. We\'ll find a time that works for your business.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you offer recurring commercial cleaning?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes! We offer monthly, quarterly, and annual maintenance plans. Regular cleaning keeps your property consistently clean and can be more cost-effective than one-off deep cleans.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you clean multi-story buildings?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We can clean buildings up to 3 stories using our professional equipment. For taller buildings, we can discuss options and may be able to accommodate your needs.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will pressure washing remove graffiti?',
+      acceptedAnswer: { '@type': 'Answer', text: 'In many cases, yes. Depending on the paint type and surface material, pressure washing combined with appropriate solvents can remove most graffiti. We\'ll assess the situation and let you know what to expect.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you carry insurance for commercial jobs?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, we are fully insured. We carry liability insurance that covers both residential and commercial work, so you can have peace of mind during the cleaning process.' },
+    },
+  ],
+};
 ---
 
-<Layout title="Commercial Pressure Washing Eugene, OR | Felt Pressure Washing" description="Professional commercial & storefront cleaning in Eugene, Springfield & surrounding Oregon areas. Keep your business looking its best. Free estimates.">
+<Layout title="Commercial Pressure Washing Eugene, OR | Felt Pressure Washing" description="Professional commercial & storefront cleaning in Eugene, Springfield & surrounding Oregon areas. Keep your business looking its best. Free estimates." faqSchema={faqSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🏢</div>

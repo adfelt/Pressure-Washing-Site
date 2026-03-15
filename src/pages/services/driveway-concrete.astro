@@ -1,9 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Can you remove oil stains from my driveway?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes! We use hot water and specialized degreasers to break down oil and grease stains. While very old or deeply absorbed stains may not come out 100%, most stains see a dramatic improvement.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will pressure washing damage my concrete?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Concrete is a hard surface that can handle high-pressure cleaning. We use the appropriate pressure level and professional surface cleaning equipment to ensure an even clean without etching or streaking.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How often should concrete be cleaned?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We recommend cleaning driveways and walkways every 1-2 years. Areas with heavy shade or moisture may need more frequent cleaning to prevent moss and algae growth.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you clean stamped or decorative concrete?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. We adjust our pressure and technique for stamped, stained, or decorative concrete to clean it safely without damaging the finish or pattern.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to clean a driveway?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A standard two-car driveway typically takes 1-2 hours. Larger surfaces or heavily stained areas may take longer. We\'ll let you know the expected timeframe with your estimate.' },
+    },
+  ],
+};
 ---
 
-<Layout title="Driveway & Concrete Cleaning Eugene, OR | Felt Pressure Washing" description="Professional driveway and concrete cleaning in Eugene, Springfield & surrounding Oregon areas. Remove oil stains, dirt, and grime. Free estimates.">
+<Layout title="Driveway & Concrete Cleaning Eugene, OR | Felt Pressure Washing" description="Professional driveway and concrete cleaning in Eugene, Springfield & surrounding Oregon areas. Remove oil stains, dirt, and grime. Free estimates." faqSchema={faqSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🚗</div>
