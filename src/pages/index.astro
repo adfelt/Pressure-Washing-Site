@@ -189,6 +189,31 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
     </div>
   </section>
 
+  <!-- About Teaser Section -->
+  <section class="about-teaser">
+    <div class="container">
+      <div class="about-teaser-inner">
+        <div class="about-teaser-image">
+          <img src="/gallery/owner-1.jpeg" alt="Andrew and Joshua — Felt Pressure Washing" />
+        </div>
+        <div class="about-teaser-text">
+          <h2>Locally Owned &amp; Operated</h2>
+          <p>
+            Five years ago Andrew started pressure washing on weekends to earn some extra income.
+            Today Felt Pressure Washing Co has grown into a fully-formed exterior cleaning company
+            serving dozens of homeowners and businesses across Lane County.
+          </p>
+          <p>
+            Andrew and Joshua treat every job with the same level of care — whether it's a front
+            porch or a commercial storefront. Eugene is their home, and keeping it looking its best
+            is what they do.
+          </p>
+          <a href="/about" class="btn btn-primary">Meet the Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Estimate Form Section -->
   <section class="estimate-form" id="estimate">
     <div class="container">
@@ -670,6 +695,63 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
   .testimonial-author span {
     color: var(--light-gray);
     font-size: 14px;
+  }
+
+  /* About Teaser Section */
+  .about-teaser {
+    padding: 80px 0;
+    background: var(--white);
+  }
+
+  .about-teaser-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-teaser-image {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .about-teaser-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .about-teaser-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+  }
+
+  .about-teaser-text p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .about-teaser-text .btn {
+    margin-top: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .about-teaser-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .about-teaser-text h2 {
+      font-size: 28px;
+    }
   }
 
   /* Estimate Form Section */

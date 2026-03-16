@@ -10,51 +10,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- <section class="about-content">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <h2>Our Story</h2>
-          <p>
-            Felt Pressure Washing was founded with a simple mission: to help homeowners and businesses
-            in the Eugene-Springfield area keep their properties looking their best. With over 5 years
-            of experience and 100+ completed projects, we've built a reputation for quality work and
-            exceptional customer service.
-          </p>
-          <p>
-            We use professional-grade equipment and eco-friendly cleaning solutions to deliver results
-            that speak for themselves. Whether it's a residential driveway or a commercial storefront,
-            we treat every job with the same level of care and attention to detail.
-          </p>
-
-          <h2>Why Choose Us</h2>
-          <ul class="about-list">
-            <li>100% Satisfaction Guaranteed</li>
-            <li>Eco-Friendly Cleaning Solutions</li>
-            <li>Free Estimates — No Obligation</li>
-            <li>Serving Eugene, Springfield & Surrounding Areas</li>
-          </ul>
-        </div>
-
-        <div class="about-sidebar">
-          <div class="about-card">
-            <div class="about-stat">5+</div>
-            <p>Years of Experience</p>
-          </div>
-          <div class="about-card">
-            <div class="about-stat">100+</div>
-            <p>Projects Completed</p>
-          </div>
-          <div class="about-card">
-            <div class="about-stat">100%</div>
-            <p>Satisfaction Guaranteed</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section> -->
-
   <!-- Meet the Owners -->
   <section class="owners">
     <div class="container">
@@ -73,6 +28,20 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="owner-image">
           <img src="/gallery/owner-1.jpeg" alt="Andrew Felt" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Action Photos -->
+  <section class="action-photos">
+    <div class="container">
+      <div class="action-photos-row">
+        <div class="action-photo">
+          <img src="/gallery/about-2.jpeg" alt="Andrew and Joshua pressure washing" />
+        </div>
+        <div class="action-photo">
+          <img src="/gallery/about-3.jpeg" alt="Felt Pressure Washing team on the job" />
         </div>
       </div>
     </div>
@@ -260,6 +229,38 @@ import Layout from '../layouts/Layout.astro';
     font-size: 18px;
     opacity: 0.9;
     margin-bottom: 32px;
+  }
+
+  /* Action Photos */
+  .action-photos {
+    padding: 0 0 60px;
+    background: var(--bg-light);
+  }
+
+  .action-photos-row {
+    display: flex;
+    gap: 16px;
+  }
+
+  .action-photo {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 3/2;
+    box-shadow: var(--shadow-md);
+  }
+
+  .action-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .action-photos-row {
+      flex-direction: column;
+    }
   }
 
   @media (max-width: 968px) {

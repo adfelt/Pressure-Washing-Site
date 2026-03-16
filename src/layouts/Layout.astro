@@ -103,6 +103,7 @@ const localBusinessSchema = {
             </svg>
             Call Now
           </a>
+          <a href="/about" class="cta-about">About Us</a>
         </div>
       </div>
     </div>
@@ -490,6 +491,30 @@ const localBusinessSchema = {
       font-size: 13px;
     }
 
+    .cta-about {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all .3s ease;
+    }
+
+    .cta-about:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header.scrolled .cta-about {
+      padding: 8px 18px;
+      font-size: 13px;
+    }
+
     .cta-estimate {
       display: flex;
       align-items: center;
@@ -581,6 +606,18 @@ const localBusinessSchema = {
     .btn-secondary:hover {
       background: var(--primary-blue);
       color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--white);
       transform: translateY(-3px);
     }
 
