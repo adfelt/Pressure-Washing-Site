@@ -4,26 +4,86 @@ import Layout from '../../layouts/Layout.astro';
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'Chemical Dilution Calculator for Pressure Washing',
-  description: 'Free tool to calculate the correct chemical-to-water mix ratios for soft washing and pressure washing, based on your Xjet or downstream injector ratio.',
+  name: 'Soft Wash Chemical Dilution Calculator',
+  description: 'Free pressure washing chemical calculator. Enter your Xjet tip or downstream injector ratio, source SH%, and bucket size to get the exact soft wash mix for any target surface concentration.',
   url: 'https://feltpressurewashing.com/tools/chemical-calculator',
   applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Any',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I calculate the soft wash mix ratio for my Xjet?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Divide your bucket concentration by (your Xjet ratio + 1). For example, straight 12.5% SH through a 10:1 tip gives 12.5 ÷ 11 ≈ 1.14% at the surface. To work backwards from a target, multiply the target by (ratio + 1) to find what concentration you need in the bucket.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What ratio should I use for house washing with a downstream injector?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most downstream injectors run around 10:1. With straight 12.5% SH in the tank, a 10:1 injector delivers roughly 1.14% SH at the surface — which is a solid house wash concentration for removing algae, mold, and mildew from vinyl, brick, and stucco.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between an Xjet and a downstream injector?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A downstream injector is installed between the pump and gun and pulls chemical at a fixed ratio (usually 10:1). An Xjet is a proportioner that attaches to the end of your wand — you can swap color-coded tips to change the dilution ratio (1:1, 2:1, 5:1, 10:1). The Xjet is more versatile and lets you apply higher chemical concentrations, which is why it is popular for roof cleaning.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much SH do I need for roof cleaning?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Roof cleaning typically requires 1.5%–3% SH at the surface. With a 1:1 Xjet tip and straight 12.5% SH in the bucket, you get 6.25% at the surface — more than enough. For a lighter 2% application, use a 5:1 tip with straight 12.5% SH (12.5 ÷ 6 ≈ 2.08%). Always use a surfactant to extend dwell time on the roof surface.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I use this calculator for chemicals other than sodium hypochlorite?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. The calculator works for any chemical where you know the source concentration percentage. Just enter the concentration of your chemical in the source field. The dilution math is the same regardless of what chemical you are mixing.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What SH concentration should I buy for pressure washing?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most professional pressure washers use 12.5% sodium hypochlorite (SH), available from pool supply stores or chemical distributors. Pool shock runs around 10–12%, and household bleach is only 6–8% — which limits how strong a mix you can achieve through a downstream injector.' },
+    },
+  ],
+};
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Calculate Soft Wash Chemical Mix Ratios',
+  description: 'Use this calculator to find the correct amount of SH and water for your bucket based on your Xjet or downstream injector ratio and target surface concentration.',
+  tool: [
+    { '@type': 'HowToTool', name: 'Xjet proportioner or downstream injector' },
+    { '@type': 'HowToTool', name: 'Sodium hypochlorite (SH)' },
+    { '@type': 'HowToTool', name: 'Bucket or chemical tank' },
+  ],
+  step: [
+    { '@type': 'HowToStep', name: 'Select your ratio', text: 'Choose the ratio for your Xjet tip or downstream injector — common options are 1:1, 2:1, 5:1, and 10:1. The ratio represents how many parts machine water are mixed per 1 part chemical from your bucket.' },
+    { '@type': 'HowToStep', name: 'Enter source chemical concentration', text: 'Enter the concentration of the chemical in your bucket. Standard bulk SH is 12.5%, pool bleach is around 10%, and household bleach is 6–8%.' },
+    { '@type': 'HowToStep', name: 'Enter your bucket or tank size', text: 'Enter the total volume of your bucket or chemical tank in gallons.' },
+    { '@type': 'HowToStep', name: 'Set your target surface concentration', text: 'Enter the SH percentage you want to hit at the surface. House washing typically targets 0.5–1.5%; roof cleaning targets 1.5–3%.' },
+    { '@type': 'HowToStep', name: 'Read your mix', text: 'The calculator shows exactly how many gallons (and ounces) of SH and water to add to your bucket to hit your target. Add water first, then SH, then surfactant.' },
+  ],
 };
 ---
 
 <Layout
-  title="Chemical Dilution Calculator | Felt Pressure Washing"
-  description="Free pressure washing chemical calculator. Enter your Xjet or downstream ratio, source SH%, and target surface concentration to get exact mix ratios for your bucket."
+  title="Soft Wash Chemical Calculator — Xjet & Downstream Mix Ratios | Felt Pressure Washing"
+  description="Free soft wash chemical calculator. Enter your Xjet tip ratio or downstream injector setting, source SH%, and bucket size to get the exact mix for house washing, roof cleaning, and more."
+  faqSchema={faqSchema}
   serviceSchema={serviceSchema}
 >
+<script type="application/ld+json" is:inline set:html={JSON.stringify(howToSchema)} />
 
   <!-- Hero -->
   <section class="tool-hero">
     <div class="container">
       <div class="tool-icon-lg">🧪</div>
-      <h1 class="section-title">Chemical Dilution Calculator</h1>
-      <p class="section-subtitle">Get the exact mix for your bucket based on your proportioner ratio and target surface concentration</p>
+      <h1 class="section-title">Soft Wash Chemical Calculator</h1>
+      <p class="section-subtitle">Get the exact SH mix for your Xjet or downstream injector — enter your ratio, bucket size, and target surface concentration</p>
     </div>
   </section>
 
@@ -31,7 +91,7 @@ const serviceSchema = {
   <section class="article-section">
     <div class="container article-container">
 
-      <h2>Understanding Downstream Ratios & Proportioners</h2>
+      <h2>How Soft Wash Dilution Ratios Work</h2>
       <p>
         Whether you're running a standard downstream injector or an Xjet proportioner, the fundamental principle is the same: your machine dilutes whatever is in your bucket before it hits the surface. The ratio tells you exactly how much dilution happens at the tip.
       </p>
@@ -64,7 +124,7 @@ const serviceSchema = {
         An <strong>Xjet (or M5 Xjet)</strong> is a proportioner that attaches to the end of your wand. You swap color-coded tips to change the ratio — common options are 1:1, 2:1, 5:1, and 10:1. Because it operates at lower pressure (after the gun), it's more consistent and lets you apply higher concentrations without needing a 12V pump.
       </p>
 
-      <h3>Common Surface Targets</h3>
+      <h3>Recommended SH Concentrations by Surface Type</h3>
       <ul class="target-list">
         <li><strong>House wash (vinyl, brick, stucco):</strong> 0.5% – 1.5% SH at surface</li>
         <li><strong>Roof cleaning (moss & algae):</strong> 1.5% – 3% SH at surface</li>
@@ -72,7 +132,7 @@ const serviceSchema = {
         <li><strong>Concrete & driveways:</strong> Typically no SH needed — high pressure + degreaser</li>
       </ul>
 
-      <h3>Always Add Surfactant</h3>
+      <h3>Why You Always Need a Surfactant</h3>
       <p>
         SH alone will run off fast. Always add a surfactant (like Elemonator or dish soap as a budget option) to your bucket so the mix dwells on the surface long enough to kill organics. Typical rate is 1–3 oz of surfactant per gallon of mix in the bucket.
       </p>
@@ -205,6 +265,44 @@ const serviceSchema = {
 
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container article-container">
+      <h2 class="faq-heading">Frequently Asked Questions</h2>
+
+      <details class="faq-item">
+        <summary>How do I calculate the soft wash mix ratio for my Xjet?</summary>
+        <p>Divide your bucket concentration by (your Xjet ratio + 1). For example, straight 12.5% SH through a 10:1 tip gives 12.5 ÷ 11 ≈ 1.14% at the surface. To work backwards from a target surface concentration, multiply the target by (ratio + 1) — that's what concentration you need in the bucket.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What ratio should I use for house washing with a downstream injector?</summary>
+        <p>Most downstream injectors run around 10:1. With straight 12.5% SH in the tank, a 10:1 injector delivers roughly 1.14% SH at the surface — a solid concentration for removing algae, mold, and mildew from vinyl siding, brick, and stucco.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the difference between an Xjet and a downstream injector?</summary>
+        <p>A downstream injector is installed between the pump and the gun and pulls chemical at a fixed ratio (usually 10:1). An Xjet is a proportioner that attaches to the end of your wand — you swap color-coded tips to change the ratio (1:1, 2:1, 5:1, 10:1). The Xjet is more versatile and lets you apply higher concentrations without a 12V pump, making it popular for roof cleaning.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How much SH do I need for roof cleaning?</summary>
+        <p>Roof cleaning typically targets 1.5%–3% SH at the surface. With a 1:1 Xjet tip and straight 12.5% SH, you get 6.25% — more than enough for heavy moss. For a lighter 2% application, a 5:1 tip with straight 12.5% SH works out to about 2.08%. Always add a surfactant to extend dwell time on the roof surface.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I use this calculator for chemicals other than SH?</summary>
+        <p>Yes. The calculator works for any chemical where you know the source concentration percentage. Just enter the concentration of your chemical in the source field — the dilution math is the same regardless of what you're mixing.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What SH concentration should I buy for pressure washing?</summary>
+        <p>Most professionals use 12.5% sodium hypochlorite (SH), available from pool supply stores or chemical distributors. Pool shock runs around 10–12%, and household bleach is only 6–8% — which limits how strong a mix you can push through a downstream injector.</p>
+      </details>
+
     </div>
   </section>
 
@@ -563,6 +661,55 @@ const serviceSchema = {
     font-size: 13px;
     color: var(--light-gray);
     line-height: 1.6;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 60px 0;
+    background: var(--white);
+  }
+  .faq-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 32px;
+  }
+  .faq-item {
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-item summary {
+    padding: 18px 24px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--dark-gray);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    color: var(--primary-blue);
+    font-weight: 400;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item summary:hover { background: var(--bg-light); }
+  .faq-item p {
+    padding: 0 24px 18px;
+    color: var(--light-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
   }
 
   /* CTA */
