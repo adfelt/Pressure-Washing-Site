@@ -33,9 +33,19 @@ const faqSchema = {
     },
   ],
 };
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Driveway & Concrete Cleaning',
+  serviceType: 'Driveway & Concrete Cleaning',
+  description: 'Professional driveway and concrete cleaning in Eugene, Springfield & surrounding Oregon areas. Remove oil stains, dirt, and grime.',
+  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+  areaServed: [{ '@type': 'City', name: 'Eugene' }, { '@type': 'City', name: 'Springfield' }],
+  url: 'https://feltpressurewashing.com/services/driveway-concrete',
+};
 ---
 
-<Layout title="Driveway & Concrete Cleaning Eugene, OR | Felt Pressure Washing" description="Professional driveway and concrete cleaning in Eugene, Springfield & surrounding Oregon areas. Remove oil stains, dirt, and grime. Free estimates." faqSchema={faqSchema}>
+<Layout title="Driveway & Concrete Cleaning Eugene, OR | Felt Pressure Washing" description="Professional driveway and concrete cleaning in Eugene, Springfield & surrounding Oregon areas. Remove oil stains, dirt, and grime. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🚗</div>

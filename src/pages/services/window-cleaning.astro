@@ -33,9 +33,19 @@ const faqSchema = {
     },
   ],
 };
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Window Cleaning',
+  serviceType: 'Window Cleaning',
+  description: 'Professional window cleaning in Eugene, Springfield & surrounding Oregon areas. Crystal clear windows for homes and businesses.',
+  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+  areaServed: [{ '@type': 'City', name: 'Eugene' }, { '@type': 'City', name: 'Springfield' }],
+  url: 'https://feltpressurewashing.com/services/window-cleaning',
+};
 ---
 
-<Layout title="Window Cleaning Eugene, OR | Felt Pressure Washing" description="Professional window cleaning in Eugene, Springfield & surrounding Oregon areas. Crystal clear windows for homes and businesses. Free estimates." faqSchema={faqSchema}>
+<Layout title="Window Cleaning Eugene, OR | Felt Pressure Washing" description="Professional window cleaning in Eugene, Springfield & surrounding Oregon areas. Crystal clear windows for homes and businesses. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🪟</div>

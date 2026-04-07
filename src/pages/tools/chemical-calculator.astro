@@ -1,0 +1,744 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Chemical Dilution Calculator for Pressure Washing',
+  description: 'Free tool to calculate the correct chemical-to-water mix ratios for soft washing and pressure washing, based on your Xjet or downstream injector ratio.',
+  url: 'https://feltpressurewashing.com/tools/chemical-calculator',
+  applicationCategory: 'UtilityApplication',
+  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+};
+---
+
+<Layout
+  title="Chemical Dilution Calculator | Felt Pressure Washing"
+  description="Free pressure washing chemical calculator. Enter your Xjet or downstream ratio, source SH%, and target surface concentration to get exact mix ratios for your bucket."
+  serviceSchema={serviceSchema}
+>
+
+  <!-- Hero -->
+  <section class="tool-hero">
+    <div class="container">
+      <div class="tool-icon-lg">🧪</div>
+      <h1 class="section-title">Chemical Dilution Calculator</h1>
+      <p class="section-subtitle">Get the exact mix for your bucket based on your proportioner ratio and target surface concentration</p>
+    </div>
+  </section>
+
+  <!-- Article -->
+  <section class="article-section">
+    <div class="container article-container">
+
+      <h2>Understanding Downstream Ratios & Proportioners</h2>
+      <p>
+        Whether you're running a standard downstream injector or an Xjet proportioner, the fundamental principle is the same: your machine dilutes whatever is in your bucket before it hits the surface. The ratio tells you exactly how much dilution happens at the tip.
+      </p>
+
+      <h3>How the Ratio Works</h3>
+      <p>
+        A <strong>1:1 ratio</strong> means the proportioner draws 1 part chemical for every 1 part machine water — so your bucket concentration gets cut in half at the surface. A <strong>5:1 ratio</strong> means 5 parts water per 1 part chemical, dividing your bucket concentration by 6. The formula is simple:
+      </p>
+
+      <div class="formula-block">
+        <div class="formula">
+          <span class="formula-label">Surface Concentration</span>
+          <span class="formula-eq">=</span>
+          <span class="formula-fraction">
+            <span class="numerator">Bucket Concentration</span>
+            <span class="denominator">Ratio + 1</span>
+          </span>
+        </div>
+      </div>
+
+      <p>
+        So if your bucket has straight 12.5% SH and you're running a 10:1 tip, you're hitting the surface at <strong>12.5 ÷ 11 ≈ 1.14%</strong> — a solid house wash mix. Swap to a 1:1 tip with the same bucket and you're pushing <strong>12.5 ÷ 2 = 6.25%</strong> — useful for heavy roof moss.
+      </p>
+
+      <h3>Xjet vs. Downstream Injector</h3>
+      <p>
+        A <strong>downstream injector</strong> sits between the pump and the gun, pulling chemical from a tank through a fixed metering orifice. Most downstream injectors run around 10:1, though this varies by machine and can drift with pressure changes.
+      </p>
+      <p>
+        An <strong>Xjet (or M5 Xjet)</strong> is a proportioner that attaches to the end of your wand. You swap color-coded tips to change the ratio — common options are 1:1, 2:1, 5:1, and 10:1. Because it operates at lower pressure (after the gun), it's more consistent and lets you apply higher concentrations without needing a 12V pump.
+      </p>
+
+      <h3>Common Surface Targets</h3>
+      <ul class="target-list">
+        <li><strong>House wash (vinyl, brick, stucco):</strong> 0.5% – 1.5% SH at surface</li>
+        <li><strong>Roof cleaning (moss & algae):</strong> 1.5% – 3% SH at surface</li>
+        <li><strong>Wood decks & fences:</strong> 0.5% – 1% SH at surface (lower to protect wood)</li>
+        <li><strong>Concrete & driveways:</strong> Typically no SH needed — high pressure + degreaser</li>
+      </ul>
+
+      <h3>Always Add Surfactant</h3>
+      <p>
+        SH alone will run off fast. Always add a surfactant (like Elemonator or dish soap as a budget option) to your bucket so the mix dwells on the surface long enough to kill organics. Typical rate is 1–3 oz of surfactant per gallon of mix in the bucket.
+      </p>
+
+      <div class="safety-block">
+        <h3>Safety First</h3>
+        <ul>
+          <li>Always add SH to water — never water to SH</li>
+          <li>Wear gloves, eye protection, and chemical-resistant clothing</li>
+          <li>Never mix SH with acids, ammonia, or other cleaners</li>
+          <li>Rinse surrounding plants and landscaping before and after application</li>
+          <li>Work on cool, overcast days when possible to reduce evaporation and drift</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="calculator-section">
+    <div class="container">
+      <h2 class="section-title">Mix Calculator</h2>
+      <p class="section-subtitle">Fill in your setup — the calculator updates instantly</p>
+
+      <div class="calc-card">
+
+        <div class="calc-grid">
+
+          <!-- LEFT: Inputs -->
+          <div class="calc-inputs">
+            <h3>Your Setup</h3>
+
+            <div class="input-group">
+              <label for="ratio-preset">Proportioner / Injector Ratio</label>
+              <div class="ratio-presets">
+                <button class="ratio-btn active" data-ratio="1">1:1</button>
+                <button class="ratio-btn" data-ratio="2">2:1</button>
+                <button class="ratio-btn" data-ratio="5">5:1</button>
+                <button class="ratio-btn" data-ratio="10">10:1</button>
+                <button class="ratio-btn" data-ratio="custom">Custom</button>
+              </div>
+              <div class="custom-ratio-wrap" id="customRatioWrap" style="display:none;">
+                <input type="number" id="customRatio" min="0.5" max="50" step="0.5" placeholder="e.g. 7" />
+                <span class="input-unit">: 1</span>
+              </div>
+              <p class="input-hint">Water parts : 1 part chemical drawn from bucket</p>
+            </div>
+
+            <div class="input-group">
+              <label for="sourceConc">Source Chemical Concentration</label>
+              <div class="input-row">
+                <input type="number" id="sourceConc" value="12.5" min="1" max="100" step="0.5" />
+                <span class="input-unit">%</span>
+              </div>
+              <p class="input-hint">12.5% is standard bulk SH; pool bleach is ~10%; household bleach is ~6%</p>
+            </div>
+
+            <div class="input-group">
+              <label for="bucketSize">Bucket / Tank Size</label>
+              <div class="input-row">
+                <input type="number" id="bucketSize" value="5" min="0.5" max="100" step="0.5" />
+                <span class="input-unit">gallons</span>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="targetConc">Target Surface Concentration</label>
+              <div class="input-row">
+                <input type="number" id="targetConc" value="1" min="0.1" max="10" step="0.1" />
+                <span class="input-unit">%</span>
+              </div>
+              <div class="target-presets">
+                <button class="target-btn" data-target="0.5">Light wash (0.5%)</button>
+                <button class="target-btn active" data-target="1">House wash (1%)</button>
+                <button class="target-btn" data-target="2">Roof (2%)</button>
+                <button class="target-btn" data-target="3">Heavy roof (3%)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Results -->
+          <div class="calc-results">
+            <h3>Your Mix</h3>
+
+            <div class="result-block" id="resultBlock">
+
+              <div class="result-surface">
+                <span class="result-label">Surface Concentration</span>
+                <span class="result-value" id="surfaceConc">—</span>
+              </div>
+
+              <div class="result-divider"></div>
+
+              <div class="result-row">
+                <div class="result-item">
+                  <span class="result-item-label">Chemical (SH) to add</span>
+                  <span class="result-item-value" id="chemGal">—</span>
+                  <span class="result-item-sub" id="chemOz">—</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-item-label">Water to add</span>
+                  <span class="result-item-value" id="waterGal">—</span>
+                  <span class="result-item-sub" id="waterOz">—</span>
+                </div>
+              </div>
+
+              <div class="result-divider"></div>
+
+              <div class="result-row">
+                <div class="result-item">
+                  <span class="result-item-label">Bucket concentration</span>
+                  <span class="result-item-value" id="bucketConc">—</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-item-label">Dilution factor</span>
+                  <span class="result-item-value" id="dilutionFactor">—</span>
+                </div>
+              </div>
+
+              <div class="result-warning" id="resultWarning" style="display:none;">
+                <span id="warningText"></span>
+              </div>
+
+            </div>
+
+            <div class="result-note">
+              <strong>Reminder:</strong> Add SH to water in the bucket, not the other way around. Add surfactant last.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="tool-cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Leave the Chemistry to Us</h2>
+        <p>We dial in the right mix for every job. Get a free estimate today.</p>
+        <a href="/#estimate" class="btn btn-primary">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Hero */
+  .tool-hero {
+    padding: 60px 0 30px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    text-align: center;
+  }
+  .tool-icon-lg {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  /* Article */
+  .article-section {
+    padding: 60px 0;
+    background: var(--white);
+  }
+  .article-container {
+    max-width: 800px;
+  }
+  .article-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+  }
+  .article-container h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin: 32px 0 12px;
+  }
+  .article-container p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .article-container strong {
+    color: var(--dark-gray);
+  }
+
+  /* Formula */
+  .formula-block {
+    background: var(--bg-light);
+    border-left: 4px solid var(--primary-blue);
+    border-radius: 8px;
+    padding: 24px 32px;
+    margin: 24px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .formula {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .formula-label {
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-size: 15px;
+  }
+  .formula-eq {
+    font-size: 24px;
+    color: var(--light-gray);
+  }
+  .formula-fraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .numerator {
+    border-bottom: 2px solid var(--dark-gray);
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--dark-gray);
+  }
+  .denominator {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--dark-gray);
+  }
+
+  /* Target list */
+  .target-list {
+    padding-left: 20px;
+    color: var(--light-gray);
+    line-height: 2;
+  }
+  .target-list strong {
+    color: var(--dark-gray);
+  }
+
+  /* Safety block */
+  .safety-block {
+    background: #FFF7ED;
+    border-left: 4px solid #F59E0B;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 32px;
+  }
+  .safety-block h3 {
+    margin-top: 0;
+    color: #92400E;
+  }
+  .safety-block ul {
+    padding-left: 20px;
+    color: #78350F;
+    line-height: 2;
+    margin: 0;
+  }
+
+  /* Calculator section */
+  .calculator-section {
+    padding: 60px 0;
+    background: var(--bg-light);
+  }
+
+  .calc-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    padding: 40px;
+    margin-top: 20px;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .calc-inputs h3,
+  .calc-results h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--bg-light);
+  }
+
+  /* Input groups */
+  .input-group {
+    margin-bottom: 28px;
+  }
+  .input-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--dark-gray);
+    margin-bottom: 8px;
+  }
+  .input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .input-row input,
+  .custom-ratio-wrap input {
+    width: 100px;
+    padding: 10px 14px;
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-gray);
+    transition: border-color 0.2s;
+  }
+  .input-row input:focus,
+  .custom-ratio-wrap input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+  }
+  .input-unit {
+    font-size: 14px;
+    color: var(--light-gray);
+    font-weight: 600;
+  }
+  .input-hint {
+    font-size: 12px;
+    color: var(--light-gray);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* Ratio presets */
+  .ratio-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .ratio-btn {
+    padding: 8px 16px;
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--light-gray);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s;
+  }
+  .ratio-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  .ratio-btn.active {
+    border-color: var(--primary-blue);
+    background: var(--primary-blue);
+    color: var(--white);
+  }
+
+  .custom-ratio-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  /* Target presets */
+  .target-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .target-btn {
+    padding: 6px 12px;
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--light-gray);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s;
+  }
+  .target-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+  }
+  .target-btn.active {
+    border-color: var(--primary-blue);
+    background: var(--primary-blue);
+    color: var(--white);
+  }
+
+  /* Results */
+  .result-block {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .result-surface {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .result-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .result-value {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1.1;
+  }
+
+  .result-divider {
+    height: 1px;
+    background: #E5E7EB;
+    margin: 20px 0;
+  }
+
+  .result-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .result-item {
+    text-align: center;
+  }
+  .result-item-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .result-item-value {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-gray);
+  }
+  .result-item-sub {
+    display: block;
+    font-size: 12px;
+    color: var(--light-gray);
+    margin-top: 2px;
+  }
+
+  .result-warning {
+    margin-top: 16px;
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #B91C1C;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .result-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--light-gray);
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .tool-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #005A8E 100%);
+    text-align: center;
+  }
+  .tool-cta .cta-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .tool-cta .cta-block p {
+    color: rgba(255,255,255,0.85);
+    font-size: 18px;
+    margin-bottom: 32px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .calc-card {
+      padding: 24px;
+    }
+    .calc-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .formula-block {
+      padding: 16px;
+    }
+    .formula {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .result-value {
+      font-size: 36px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ratio-presets {
+      gap: 6px;
+    }
+    .ratio-btn {
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<script>
+  // ─── State ───────────────────────────────────────────────
+  let currentRatio = 1; // water parts per 1 part chemical
+
+  // ─── Ratio preset buttons ─────────────────────────────────
+  const ratioBtns = document.querySelectorAll('.ratio-btn');
+  const customRatioWrap = document.getElementById('customRatioWrap') as HTMLElement;
+  const customRatioInput = document.getElementById('customRatio') as HTMLInputElement;
+
+  ratioBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      ratioBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const val = btn.getAttribute('data-ratio');
+      if (val === 'custom') {
+        customRatioWrap.style.display = 'flex';
+        currentRatio = parseFloat(customRatioInput.value) || 1;
+      } else {
+        customRatioWrap.style.display = 'none';
+        currentRatio = parseFloat(val!);
+      }
+      calculate();
+    });
+  });
+
+  customRatioInput?.addEventListener('input', () => {
+    currentRatio = parseFloat(customRatioInput.value) || 1;
+    calculate();
+  });
+
+  // ─── Target preset buttons ────────────────────────────────
+  const targetBtns = document.querySelectorAll('.target-btn');
+  const targetConcInput = document.getElementById('targetConc') as HTMLInputElement;
+
+  targetBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      targetBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      targetConcInput.value = btn.getAttribute('data-target')!;
+      calculate();
+    });
+  });
+
+  // ─── Live recalc on all inputs ────────────────────────────
+  ['sourceConc', 'bucketSize', 'targetConc'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', () => {
+      // Deactivate target preset buttons if user types manually
+      if (id === 'targetConc') {
+        targetBtns.forEach(b => b.classList.remove('active'));
+      }
+      calculate();
+    });
+  });
+
+  // ─── Core calculation ─────────────────────────────────────
+  function calculate() {
+    const sourceConc   = parseFloat((document.getElementById('sourceConc') as HTMLInputElement).value);
+    const bucketSize   = parseFloat((document.getElementById('bucketSize') as HTMLInputElement).value);
+    const targetSurface = parseFloat((document.getElementById('targetConc') as HTMLInputElement).value);
+
+    const warningEl  = document.getElementById('resultWarning') as HTMLElement;
+    const warningText = document.getElementById('warningText') as HTMLElement;
+
+    warningEl.style.display = 'none';
+
+    if (isNaN(sourceConc) || isNaN(bucketSize) || isNaN(targetSurface) || isNaN(currentRatio)) {
+      setResults('—', '—', '—', '—', '—', '—', '—');
+      return;
+    }
+
+    // dilution factor = ratio + 1
+    const dilutionFactor = currentRatio + 1;
+
+    // Required bucket concentration
+    const requiredBucketConc = targetSurface * dilutionFactor;
+
+    // Validate
+    if (requiredBucketConc > sourceConc) {
+      warningEl.style.display = 'block';
+      warningText.textContent = `Impossible mix: need ${requiredBucketConc.toFixed(1)}% in bucket but your source is only ${sourceConc}% SH. Lower your target, switch to a lower ratio tip, or use a stronger chemical.`;
+      setResults('—', '—', '—', '—', '—', '—', '—');
+      return;
+    }
+
+    if (requiredBucketConc <= 0 || bucketSize <= 0) {
+      setResults('—', '—', '—', '—', '—', '—', '—');
+      return;
+    }
+
+    // Fraction of bucket that is SH
+    const chemFraction = requiredBucketConc / sourceConc;
+    const chemGallons  = chemFraction * bucketSize;
+    const waterGallons = bucketSize - chemGallons;
+
+    const chemOz  = chemGallons * 128;
+    const waterOz = waterGallons * 128;
+
+    // Actual surface conc (confirm)
+    const actualSurface = requiredBucketConc / dilutionFactor;
+
+    setResults(
+      `${actualSurface.toFixed(2)}%`,
+      chemGallons < 0.1 ? `${chemOz.toFixed(1)} oz` : `${chemGallons.toFixed(2)} gal`,
+      `(${chemOz.toFixed(0)} oz)`,
+      waterGallons < 0.1 ? `${waterOz.toFixed(1)} oz` : `${waterGallons.toFixed(2)} gal`,
+      `(${waterOz.toFixed(0)} oz)`,
+      `${requiredBucketConc.toFixed(2)}%`,
+      `÷ ${dilutionFactor}`
+    );
+  }
+
+  function setResults(surface: string, chemVal: string, chemSub: string, waterVal: string, waterSub: string, bucketConc: string, factor: string) {
+    (document.getElementById('surfaceConc') as HTMLElement).textContent   = surface;
+    (document.getElementById('chemGal') as HTMLElement).textContent       = chemVal;
+    (document.getElementById('chemOz') as HTMLElement).textContent        = chemSub;
+    (document.getElementById('waterGal') as HTMLElement).textContent      = waterVal;
+    (document.getElementById('waterOz') as HTMLElement).textContent       = waterSub;
+    (document.getElementById('bucketConc') as HTMLElement).textContent    = bucketConc;
+    (document.getElementById('dilutionFactor') as HTMLElement).textContent = factor;
+  }
+
+  // ─── Init ─────────────────────────────────────────────────
+  calculate();
+</script>

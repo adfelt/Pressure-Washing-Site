@@ -33,9 +33,19 @@ const faqSchema = {
     },
   ],
 };
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Deck & Fence Washing',
+  serviceType: 'Deck & Fence Washing',
+  description: 'Professional deck and fence cleaning in Eugene, Springfield & surrounding Oregon areas. Restore and protect your outdoor wood surfaces.',
+  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+  areaServed: [{ '@type': 'City', name: 'Eugene' }, { '@type': 'City', name: 'Springfield' }],
+  url: 'https://feltpressurewashing.com/services/deck-fence',
+};
 ---
 
-<Layout title="Deck & Fence Washing Eugene, OR | Felt Pressure Washing" description="Professional deck and fence cleaning in Eugene, Springfield & surrounding Oregon areas. Restore and protect your outdoor wood surfaces. Free estimates." faqSchema={faqSchema}>
+<Layout title="Deck & Fence Washing Eugene, OR | Felt Pressure Washing" description="Professional deck and fence cleaning in Eugene, Springfield & surrounding Oregon areas. Restore and protect your outdoor wood surfaces. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🪵</div>
