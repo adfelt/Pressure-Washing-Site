@@ -177,11 +177,10 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
         <div class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="testimonial-text">
-            "My house siding was covered in algae and dirt. They made it look like new construction!
-            Highly recommend their services."
+            "Andrew and his team washed my office building and did a fantastic job! We will be using them again soon in the future."
           </p>
           <div class="testimonial-author">
-            <strong>Emily Chen</strong>
+            <strong>Jeremy Gourley</strong>
             <span>Homeowner</span>
           </div>
         </div>
@@ -965,13 +964,13 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
       font-size: 42px;
     }
 
-    .form-wrapper {
-      grid-template-columns: 1fr;
-      justify-items: center;
+    .estimate-form {
+      padding: 60px 0;
     }
 
-    .form-wrapper > * {
-      width: 100%;
+    .form-wrapper {
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
 
     .form-row {
@@ -983,8 +982,12 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
       text-align: center;
     }
 
+    .form-content .section-subtitle {
+      margin-bottom: 32px;
+    }
+
     .contact-form {
-      padding: 24px 20px;
+      padding: 28px 20px;
     }
   }
 
@@ -1012,6 +1015,36 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 
     .gallery-sliders {
       display: flex;
+    }
+
+    .estimate-form {
+      padding: 48px 0;
+    }
+
+    .estimate-form .container {
+      padding: 0 16px;
+    }
+
+    .form-wrapper {
+      gap: 24px;
+    }
+
+    .contact-form {
+      padding: 24px 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-content .section-subtitle {
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .contact-info,
+    .guarantee-badge {
+      padding: 20px;
     }
   }
 </style>
