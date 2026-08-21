@@ -148,6 +148,26 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
     </div>
   </section>
 
+  <!-- Free Tool Callout -->
+  <section class="tool-callout">
+    <div class="container">
+      <a href="/tools/chemical-calculator" class="tool-callout-card">
+        <div class="tool-callout-icon" aria-hidden="true">🧪</div>
+        <div class="tool-callout-text">
+          <strong>Free Tool: Soft Wash Mix Calculator</strong>
+          <span>Tackling a project yourself? Dial in the exact SH-to-water ratio for your Xjet or downstream injector — same math the pros use.</span>
+        </div>
+        <span class="tool-callout-cta" aria-hidden="true">
+          Try it free
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="M13 6l6 6-6 6"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
   <!-- Testimonials Section -->
   <section class="testimonials">
     <div class="container">
@@ -711,6 +731,85 @@ import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
     font-size: 24px;
     margin-bottom: 12px;
     letter-spacing: 2px;
+  }
+
+  /* Free Tool Callout */
+  .tool-callout {
+    padding: 40px 0 0;
+    background: var(--white);
+  }
+
+  .tool-callout-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 32px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    border: 1px solid rgba(0, 119, 190, 0.15);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tool-callout-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0, 119, 190, 0.35);
+  }
+
+  .tool-callout-icon {
+    font-size: 42px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .tool-callout-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .tool-callout-text strong {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-blue);
+  }
+
+  .tool-callout-text span {
+    color: var(--dark-gray);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .tool-callout-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .tool-callout-card:hover .tool-callout-cta {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .tool-callout-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 24px;
+      gap: 12px;
+    }
   }
 
   /* Testimonials Section */
