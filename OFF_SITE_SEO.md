@@ -19,7 +19,7 @@ Ranking factors, roughly: **relevance** (categories, services, content), **dista
 - [ ] **Services section:** add every service (House Washing, Roof Cleaning, Driveway & Concrete, Deck & Fence, Window Cleaning, Commercial, Moss Prevention) with a 1–2 sentence description that mentions Springfield or Eugene naturally.
 - [ ] **Business description (750 chars):** lead with "Felt Pressure Washing is a locally owned pressure washing company serving Springfield, Eugene, and Lane County, Oregon…"
 - [ ] **Hours:** fill them in (even "Mon–Sat 8am–6pm"). Profiles open at search time get a boost. Then tell me the hours so I can add them to the site schema.
-- [ ] **Get the full Maps link** for your profile (Google Maps → your listing → Share → Copy link). Send it to me — I'll swap it in for the `share.google` short link in `Layout.astro` (used in schema `sameAs` / `hasMap` and the footer).
+- [X] **Full Maps link** added to the site (reviews, footer, schema) — `https://maps.app.goo.gl/tNf5LzHNn67XxcEN7`
 
 ### Reviews (biggest prominence lever)
 - [ ] Create a **direct review link** (GBP dashboard → "Ask for reviews") and save it on your phone.
