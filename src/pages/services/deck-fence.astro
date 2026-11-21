@@ -39,17 +39,17 @@ const serviceSchema = {
   name: 'Deck & Fence Washing',
   serviceType: 'Deck & Fence Washing',
   description: 'Professional deck and fence cleaning in Eugene, Springfield & surrounding Oregon areas. Restore and protect your outdoor wood surfaces.',
-  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+  provider: { '@type': 'HomeAndConstructionBusiness', '@id': 'https://feltpressurewashing.com/#business', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
   areaServed: [{ '@type': 'City', name: 'Eugene' }, { '@type': 'City', name: 'Springfield' }],
   url: 'https://feltpressurewashing.com/services/deck-fence',
 };
 ---
 
-<Layout title="Deck & Fence Washing Eugene, OR | Felt Pressure Washing" description="Professional deck and fence cleaning in Eugene, Springfield & surrounding Oregon areas. Restore and protect your outdoor wood surfaces. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
+<Layout title="Deck & Fence Washing Eugene & Springfield, OR | Felt Pressure Washing" description="Professional deck and fence cleaning in Eugene, Springfield & surrounding Oregon areas. Restore and protect your outdoor wood surfaces. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🪵</div>
-      <h1 class="section-title">Deck & Fence Washing & Restoration</h1>
+      <h1 class="section-title">Deck & Fence Washing & Restoration <span class="h1-location">in Eugene &amp; Springfield, OR</span></h1>
       <p class="section-subtitle">Restore and protect your outdoor wood surfaces from weathering</p>
     </div>
   </section>

@@ -39,17 +39,17 @@ const serviceSchema = {
   name: 'House Washing',
   serviceType: 'House Washing',
   description: 'Professional house washing in Eugene, Springfield & surrounding Oregon areas. Gentle soft washing for siding, brick, and stucco.',
-  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+  provider: { '@type': 'HomeAndConstructionBusiness', '@id': 'https://feltpressurewashing.com/#business', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
   areaServed: [{ '@type': 'City', name: 'Eugene' }, { '@type': 'City', name: 'Springfield' }],
   url: 'https://feltpressurewashing.com/services/house-washing',
 };
 ---
 
-<Layout title="House Washing Eugene, OR | Felt Pressure Washing" description="Professional house washing in Eugene, Springfield & surrounding Oregon areas. Gentle soft washing for siding, brick, and stucco. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
+<Layout title="House Washing Eugene & Springfield, OR | Felt Pressure Washing" description="Professional house washing in Eugene, Springfield & surrounding Oregon areas. Gentle soft washing for siding, brick, and stucco. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🏠</div>
-      <h1 class="section-title">House Washing</h1>
+      <h1 class="section-title">House Washing <span class="h1-location">in Eugene &amp; Springfield, OR</span></h1>
       <p class="section-subtitle">Gentle yet effective cleaning that restores your home's curb appeal</p>
     </div>
   </section>

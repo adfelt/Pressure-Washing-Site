@@ -39,17 +39,17 @@ const serviceSchema = {
   name: 'Roof Cleaning',
   serviceType: 'Roof Cleaning',
   description: 'Professional roof cleaning in Eugene, Springfield & surrounding Oregon areas. Safe moss, algae, and debris removal.',
-  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+  provider: { '@type': 'HomeAndConstructionBusiness', '@id': 'https://feltpressurewashing.com/#business', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
   areaServed: [{ '@type': 'City', name: 'Eugene' }, { '@type': 'City', name: 'Springfield' }],
   url: 'https://feltpressurewashing.com/services/roof-cleaning',
 };
 ---
 
-<Layout title="Roof Cleaning Eugene, OR | Felt Pressure Washing" description="Professional roof cleaning in Eugene, Springfield & surrounding Oregon areas. Safe moss, algae, and debris removal. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
+<Layout title="Roof Cleaning Eugene & Springfield, OR | Felt Pressure Washing" description="Professional roof cleaning in Eugene, Springfield & surrounding Oregon areas. Safe moss, algae, and debris removal. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🏡</div>
-      <h1 class="section-title">Roof Cleaning</h1>
+      <h1 class="section-title">Roof Cleaning <span class="h1-location">in Eugene &amp; Springfield, OR</span></h1>
       <p class="section-subtitle">Safely remove moss, algae, and debris to protect your roof</p>
     </div>
   </section>

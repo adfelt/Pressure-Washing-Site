@@ -39,17 +39,17 @@ const serviceSchema = {
   name: 'Commercial & Storefront Cleaning',
   serviceType: 'Commercial Pressure Washing',
   description: 'Professional commercial & storefront cleaning in Eugene, Springfield & surrounding Oregon areas. Keep your business looking its best.',
-  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+  provider: { '@type': 'HomeAndConstructionBusiness', '@id': 'https://feltpressurewashing.com/#business', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
   areaServed: [{ '@type': 'City', name: 'Eugene' }, { '@type': 'City', name: 'Springfield' }],
   url: 'https://feltpressurewashing.com/services/commercial-cleaning',
 };
 ---
 
-<Layout title="Commercial Pressure Washing Eugene, OR | Felt Pressure Washing" description="Professional commercial & storefront cleaning in Eugene, Springfield & surrounding Oregon areas. Keep your business looking its best. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
+<Layout title="Commercial Pressure Washing Eugene & Springfield, OR | Felt Pressure Washing" description="Professional commercial & storefront cleaning in Eugene, Springfield & surrounding Oregon areas. Keep your business looking its best. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🏢</div>
-      <h1 class="section-title">Commercial & Storefront Cleaning</h1>
+      <h1 class="section-title">Commercial & Storefront Cleaning <span class="h1-location">in Eugene &amp; Springfield, OR</span></h1>
       <p class="section-subtitle">Keep your business looking professional and welcoming</p>
     </div>
   </section>

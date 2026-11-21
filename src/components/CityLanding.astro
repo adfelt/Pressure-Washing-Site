@@ -1,0 +1,469 @@
+---
+/**
+ * Shared template for city / service-area landing pages
+ * (e.g. /pressure-washing-springfield-or). Each city page passes its own
+ * copy so the pages are genuinely different — Google ignores thin
+ * "swap the city name" doorway pages.
+ */
+import Layout from '../layouts/Layout.astro';
+import BeforeAfterSlider from './BeforeAfterSlider.astro';
+
+interface Faq { q: string; a: string }
+interface Tip { title: string; text: string }
+
+interface Props {
+  city: string;               // "Springfield"
+  slug: string;               // "pressure-washing-springfield-or"
+  title: string;              // <title>
+  description: string;        // meta description
+  heroSubtitle: string;
+  intro: string[];            // paragraphs
+  neighborhoods: string[];
+  localTips: Tip[];
+  faqs: Faq[];
+  slider: { before: string; after: string; altBefore: string; altAfter: string };
+  otherCity: { name: string; href: string };
+}
+
+const { city, slug, title, description, heroSubtitle, intro, neighborhoods, localTips, faqs, slider, otherCity } = Astro.props;
+
+const pageUrl = `https://feltpressurewashing.com/${slug}/`;
+
+const services = [
+  { icon: '🏠', name: 'House Washing', href: '/services/house-washing', blurb: 'Low-pressure soft washing for siding, brick and stucco.' },
+  { icon: '🏚️', name: 'Roof Cleaning', href: '/services/roof-cleaning', blurb: 'Safe moss, algae and lichen removal without blasting shingles.' },
+  { icon: '🚗', name: 'Driveway & Concrete', href: '/services/driveway-concrete', blurb: 'Driveways, sidewalks, patios and oil stains.' },
+  { icon: '🪵', name: 'Deck & Fence Washing', href: '/services/deck-fence', blurb: 'Bring gray, weathered wood back to life.' },
+  { icon: '🪟', name: 'Window Cleaning', href: '/services/window-cleaning', blurb: 'Streak-free glass for homes and storefronts.' },
+  { icon: '🏢', name: 'Commercial & Storefront', href: '/services/commercial-cleaning', blurb: 'Storefronts, offices, and walkways.' },
+  { icon: '🛡️', name: 'Preventative Care', href: '/services/preventative-care', blurb: 'Treatments that stop moss and algae from coming back.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `Pressure Washing in ${city}, OR`,
+  serviceType: 'Pressure Washing',
+  description,
+  provider: { '@id': 'https://feltpressurewashing.com/#business' },
+  areaServed: { '@type': 'City', name: city, containedInPlace: { '@type': 'State', name: 'Oregon' } },
+  url: pageUrl,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://feltpressurewashing.com/' },
+    { '@type': 'ListItem', position: 2, name: `Pressure Washing ${city}, OR`, item: pageUrl },
+  ],
+};
+---
+
+<Layout title={title} description={description} faqSchema={faqSchema} serviceSchema={serviceSchema}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <section class="city-hero">
+    <div class="container">
+      <p class="city-eyebrow">📍 Serving {city}, Oregon</p>
+      <h1 class="section-title">Pressure Washing in {city}, OR</h1>
+      <p class="section-subtitle">{heroSubtitle}</p>
+      <div class="city-hero-ctas">
+        <a href="/#estimate" class="btn btn-primary">Get a Free Estimate</a>
+        <a href="tel:+15415201761" class="btn btn-outline">Call (541) 520-1761</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="city-intro">
+    <div class="container">
+      <div class="city-row">
+        <div class="city-text">
+          <h2>Locally Owned Exterior Cleaning for {city}</h2>
+          {intro.map((p) => <p>{p}</p>)}
+        </div>
+        <div class="city-slider">
+          <BeforeAfterSlider before={slider.before} after={slider.after} altBefore={slider.altBefore} altAfter={slider.altAfter} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="city-services">
+    <div class="container">
+      <h2 class="section-title">Our Services in {city}</h2>
+      <div class="city-service-grid">
+        {services.map((s) => (
+          <a href={s.href} class="city-service-card">
+            <span class="city-service-icon" aria-hidden="true">{s.icon}</span>
+            <h3>{s.name} <span class="visually-hidden">in {city}</span></h3>
+            <p>{s.blurb}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="city-local">
+    <div class="container">
+      <h2 class="section-title">Why {city} Homes Need Regular Cleaning</h2>
+      <div class="city-tips">
+        {localTips.map((t) => (
+          <div class="city-tip">
+            <h3>{t.title}</h3>
+            <p>{t.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="city-areas">
+    <div class="container">
+      <h2 class="section-title">{city} Neighborhoods We Serve</h2>
+      <ul class="city-neighborhoods">
+        {neighborhoods.map((n) => <li>{n}</li>)}
+      </ul>
+      <p class="city-areas-note">
+        Don't see your neighborhood? If you're in or near {city}, we can almost certainly get to you —
+        just ask. We also serve <a href={otherCity.href}>{otherCity.name}</a> and the surrounding Lane County area.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">{city} Pressure Washing FAQ</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Need a Pressure Washer in {city}?</h2>
+        <p>Free, no-obligation estimates. Call, text, or send a request online.</p>
+        <a href="/#estimate" class="btn btn-primary">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .city-hero {
+    padding: 60px 0 40px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    text-align: center;
+  }
+
+  .city-eyebrow {
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 12px;
+  }
+
+  .city-hero-ctas {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  .btn-outline {
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+  }
+
+  .city-intro {
+    padding: 50px 0;
+  }
+
+  .city-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .city-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 16px;
+  }
+
+  .city-text p {
+    color: var(--light-gray);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .city-services {
+    padding: 50px 0;
+    background: var(--bg-light);
+  }
+
+  .city-service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .city-service-card {
+    background: var(--white);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .city-service-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .city-service-icon {
+    font-size: 32px;
+  }
+
+  .city-service-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: var(--dark-gray);
+    margin: 10px 0 6px;
+  }
+
+  .city-service-card p {
+    color: var(--light-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .city-local {
+    padding: 50px 0;
+  }
+
+  .city-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .city-tip {
+    border-left: 4px solid var(--light-blue);
+    padding: 4px 0 4px 20px;
+  }
+
+  .city-tip h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: var(--dark-gray);
+    margin-bottom: 8px;
+  }
+
+  .city-tip p {
+    color: var(--light-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .city-areas {
+    padding: 50px 0;
+    background: var(--bg-light);
+    text-align: center;
+  }
+
+  .city-neighborhoods {
+    list-style: none;
+    padding: 0;
+    margin: 28px auto 20px;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .city-neighborhoods li {
+    background: var(--white);
+    border: 1px solid #E5E7EB;
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-weight: 500;
+    color: var(--dark-gray);
+  }
+
+  .city-areas-note {
+    color: var(--light-gray);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .city-areas-note a {
+    color: var(--primary-blue);
+    font-weight: 600;
+  }
+
+  /* FAQ (matches service pages) */
+  .faq-section {
+    padding: 50px 0;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow-md);
+    border-color: var(--light-blue);
+  }
+
+  .faq-item summary {
+    padding: 18px 24px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--primary-blue);
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+
+  .faq-item p {
+    padding: 0 24px 18px;
+    color: var(--light-gray);
+    line-height: 1.7;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .service-cta {
+    padding: 50px 0;
+  }
+
+  .cta-block {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: var(--white);
+    padding: 48px 40px;
+    border-radius: 16px;
+  }
+
+  .cta-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .cta-block p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 968px) {
+    .city-row {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .city-text h2 {
+      font-size: 24px;
+    }
+
+    .cta-block {
+      padding: 40px 24px;
+    }
+
+    .cta-block h2 {
+      font-size: 24px;
+    }
+
+    .faq-item summary {
+      font-size: 15px;
+      padding: 16px 20px;
+    }
+
+    .faq-item p {
+      padding: 0 20px 16px;
+      font-size: 14px;
+    }
+  }
+</style>

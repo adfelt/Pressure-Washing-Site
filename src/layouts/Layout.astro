@@ -18,19 +18,29 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 
+// Google Business Profile link. TODO: swap for the full Maps URL
+// (GBP dashboard → "Share profile" or Maps → Share → Copy link, the one with ?cid=)
+const GBP_URL = 'https://share.google/Bu1oAK0BcaaPVTOz9';
+const FACEBOOK_URL = 'https://www.facebook.com/feltpressurewashing';
+
+// Service-area business: no street address or geo coordinates are published on purpose
+// (the GBP hides the home address). Keep city/region in sync with the GBP's hidden address.
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'HomeAndConstructionBusiness',
+  '@id': 'https://feltpressurewashing.com/#business',
   name: 'Felt Pressure Washing',
+  description: 'Pressure washing, soft washing, roof cleaning and exterior cleaning for homes and businesses in Springfield, Eugene and the surrounding Lane County, Oregon area.',
   telephone: '+15415201761',
   email: 'feltpressurewashingco@gmail.com',
   url: 'https://feltpressurewashing.com',
   logo: 'https://feltpressurewashing.com/logo.png',
-  image: 'https://feltpressurewashing.com/logo.png',
+  image: 'https://feltpressurewashing.com/og-image.png',
   priceRange: '$$',
   areaServed: [
-    { '@type': 'City', name: 'Eugene', containedInPlace: { '@type': 'State', name: 'Oregon' } },
     { '@type': 'City', name: 'Springfield', containedInPlace: { '@type': 'State', name: 'Oregon' } },
+    { '@type': 'City', name: 'Eugene', containedInPlace: { '@type': 'State', name: 'Oregon' } },
+    { '@type': 'AdministrativeArea', name: 'Lane County, Oregon' },
   ],
   address: {
     '@type': 'PostalAddress',
@@ -38,7 +48,25 @@ const localBusinessSchema = {
     addressRegion: 'OR',
     addressCountry: 'US',
   },
-  sameAs: [],
+  hasMap: GBP_URL,
+  sameAs: [GBP_URL, FACEBOOK_URL],
+  knowsAbout: ['Pressure washing', 'Soft washing', 'House washing', 'Roof cleaning', 'Moss removal', 'Concrete cleaning', 'Window cleaning'],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Exterior Cleaning Services',
+    itemListElement: [
+      ['House Washing', 'house-washing'],
+      ['Driveway & Concrete Cleaning', 'driveway-concrete'],
+      ['Commercial & Storefront Cleaning', 'commercial-cleaning'],
+      ['Window Cleaning', 'window-cleaning'],
+      ['Roof Cleaning', 'roof-cleaning'],
+      ['Deck & Fence Washing', 'deck-fence'],
+      ['Preventative Moss & Algae Treatment', 'preventative-care'],
+    ].map(([name, slug]) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name, url: `https://feltpressurewashing.com/services/${slug}` },
+    })),
+  },
 };
 ---
 
@@ -174,11 +202,18 @@ const localBusinessSchema = {
           <a href="/about">About</a>
           <a href="/tools/chemical-calculator">Mix Calculator</a>
         </div>
+        <div class="footer-links">
+          <h4>Service Areas</h4>
+          <a href="/pressure-washing-springfield-or">Springfield, OR</a>
+          <a href="/pressure-washing-eugene-or">Eugene, OR</a>
+          <span class="footer-note">&amp; surrounding Lane County</span>
+        </div>
         <div class="footer-contact">
           <h4>Get In Touch</h4>
           <a href="tel:+15415201761">(541) 520-1761</a>
           <a href="mailto:feltpressurewashingco@gmail.com">feltpressurewashingco@gmail.com</a>
-          <a href="https://www.facebook.com/feltpressurewashing" target="_blank" rel="noopener noreferrer">
+          <a href={GBP_URL} target="_blank" rel="noopener noreferrer">Google Reviews</a>
+          <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;" aria-hidden="true">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
             </svg>
@@ -658,8 +693,8 @@ const localBusinessSchema = {
 
     .footer-content {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 60px;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
       margin-bottom: 40px;
     }
 
@@ -693,6 +728,21 @@ const localBusinessSchema = {
     .footer-contact a:hover {
       color: var(--light-blue);
       transform: translateX(4px);
+    }
+
+    .footer-note {
+      display: block;
+      color: #6B7280;
+      font-size: 14px;
+    }
+
+    /* Location line under service-page H1s */
+    .h1-location {
+      display: block;
+      font-size: 0.5em;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-top: 8px;
     }
 
     .footer-bottom {

@@ -1,0 +1,77 @@
+---
+import CityLanding from '../components/CityLanding.astro';
+---
+
+<CityLanding
+  city="Eugene"
+  slug="pressure-washing-eugene-or"
+  title="Pressure Washing Eugene, OR | Felt Pressure Washing"
+  description="Professional pressure washing in Eugene, Oregon. Soft house washing, roof moss removal, driveway & concrete cleaning, decks, fences and windows. Free estimates — call (541) 520-1761."
+  heroSubtitle="Soft washing, roof cleaning, and concrete cleaning for Eugene homes and businesses."
+  intro={[
+    'Felt Pressure Washing is a locally owned exterior cleaning company serving Eugene, Oregon — from South Eugene and the Friendly Area to River Road, Santa Clara, and Cal Young. We clean houses, roofs, driveways, decks, fences, windows, and storefronts.',
+    "Eugene's mild, rainy climate is great for gardens and terrible for siding and roofs. Moss, algae, and mildew build up fast, especially under the big trees found in so many neighborhoods. We use low-pressure soft washing on delicate surfaces and high-pressure surface cleaning on concrete, so every part of your property gets the right treatment.",
+    'Estimates are always free. Send us a few details and we’ll get back to you with a clear price.',
+  ]}
+  neighborhoods={[
+    'South Eugene',
+    'Friendly Area',
+    'River Road',
+    'Santa Clara',
+    'Cal Young',
+    'Ferry Street Bridge',
+    'Bethel',
+    'Churchill',
+    'Crest Drive',
+    'Laurel Hill',
+    'Whiteaker',
+    'Coburg',
+  ]}
+  localTips={[
+    {
+      title: 'Hillside Homes & Shade',
+      text: 'Homes in the South Hills and other wooded areas stay shaded and damp most of the year — prime conditions for moss on roofs and algae streaks on siding.',
+    },
+    {
+      title: 'Older Homes Need a Gentle Touch',
+      text: 'Eugene has plenty of older wood-sided homes. Soft washing cleans painted and wood surfaces without stripping paint or gouging the wood like high pressure can.',
+    },
+    {
+      title: 'Rental & Move-Out Cleans',
+      text: 'With so many rentals near campus, a quick house and walkway wash between tenants helps properties show better and rent faster.',
+    },
+    {
+      title: 'Protect Your Roof',
+      text: 'Moss holds water against shingles and lifts their edges. Regular soft washing plus a preventative treatment helps your roof last longer.',
+    },
+  ]}
+  faqs={[
+    {
+      q: 'What areas of Eugene do you serve?',
+      a: 'All of Eugene, including South Eugene, the Friendly Area, River Road, Santa Clara, Cal Young, Ferry Street Bridge, Bethel, and Churchill, plus Springfield, Coburg, and nearby communities.',
+    },
+    {
+      q: 'How much does house washing cost in Eugene?',
+      a: 'It depends on your home’s size, number of stories, and how much buildup there is. We provide free, no-obligation estimates so you know the exact price up front.',
+    },
+    {
+      q: 'Do you clean roofs in Eugene?',
+      a: 'Yes. We soft wash roofs to kill moss, algae, and lichen without high pressure, which can damage shingles. We also offer preventative treatments to slow regrowth.',
+    },
+    {
+      q: 'Do you work with rental properties and businesses?',
+      a: 'Yes. We clean storefronts, offices, walkways, and rental properties for landlords and property managers throughout Eugene.',
+    },
+    {
+      q: 'How do I get an estimate?',
+      a: 'Call or text (541) 520-1761, or fill out the estimate form on our homepage. We usually respond within 24 hours.',
+    },
+  ]}
+  slider={{
+    before: '/gallery/concrete/before-1.jpeg',
+    after: '/gallery/concrete/after-1.jpeg',
+    altBefore: 'Dirty concrete driveway before pressure washing',
+    altAfter: 'Clean concrete driveway after pressure washing by Felt Pressure Washing',
+  }}
+  otherCity={{ name: 'Springfield', href: '/pressure-washing-springfield-or' }}
+/>

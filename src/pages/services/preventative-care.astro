@@ -39,17 +39,17 @@ const serviceSchema = {
   name: 'Preventative Moss & Algae Treatment',
   serviceType: 'Preventative Care',
   description: 'Preventative moss and algae treatment in Eugene, Springfield & surrounding Oregon areas. Stop growth before it starts.',
-  provider: { '@type': 'LocalBusiness', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
+  provider: { '@type': 'HomeAndConstructionBusiness', '@id': 'https://feltpressurewashing.com/#business', name: 'Felt Pressure Washing', url: 'https://feltpressurewashing.com' },
   areaServed: [{ '@type': 'City', name: 'Eugene' }, { '@type': 'City', name: 'Springfield' }],
   url: 'https://feltpressurewashing.com/services/preventative-care',
 };
 ---
 
-<Layout title="Preventative Moss & Algae Treatment Eugene, OR | Felt Pressure Washing" description="Preventative moss and algae treatment in Eugene, Springfield & surrounding Oregon areas. Stop growth before it starts. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
+<Layout title="Preventative Moss & Algae Treatment Eugene & Springfield, OR | Felt Pressure Washing" description="Preventative moss and algae treatment in Eugene, Springfield & surrounding Oregon areas. Stop growth before it starts. Free estimates." faqSchema={faqSchema} serviceSchema={serviceSchema}>
   <section class="service-hero">
     <div class="container">
       <div class="service-icon-lg">🛡️</div>
-      <h1 class="section-title">Preventative Care</h1>
+      <h1 class="section-title">Preventative Care <span class="h1-location">in Eugene &amp; Springfield, OR</span></h1>
       <p class="section-subtitle">Stop moss and algae before they take hold</p>
     </div>
   </section>
